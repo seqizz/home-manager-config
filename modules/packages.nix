@@ -121,7 +121,6 @@ in
     gnome3.dconf # some apps keep its config in this shit: shotwell
     graphviz # some weird tools *sometimes* need this
     grobi # no more autorandr
-    gxkb
     imagemagick
     inotify-tools
     jmtpfs # mount MTP devices easily
@@ -137,6 +136,7 @@ in
     my_scripts.pulseaudio-toggle-hack
     my_scripts.tarsnap-dotfiles
     my_scripts.xinput-toggle
+    my_scripts.workman-toggle
     networkmanagerapplet
     numlockx
     pamixer # pulseaudio mixer

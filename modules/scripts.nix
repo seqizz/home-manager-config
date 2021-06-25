@@ -181,6 +181,22 @@
     done
   '';
 
+  workman-toggle = pkgs.writeScriptBin "workman-toggle" ''
+    #!/usr/bin/env ${pkgs.bash}/bin/bash
+
+    current=$(setxkbmap -query | grep layout | awk '{print $2}')
+
+    if [[ $1 == "query" ]]; then
+      echo $current
+    else
+      if [ $current == 'tr' ];then
+        setxkbmap workman-p-tr
+      else
+        setxkbmap tr
+      fi
+    fi
+  '';
+
   xinput-toggle = pkgs.writeScriptBin "xinput-toggle" ''
     #!/usr/bin/env ${pkgs.bash}/bin/bash
 
