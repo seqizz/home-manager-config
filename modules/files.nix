@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   sync = "/home/gurkan/syncfolder";
-  secrets = import ./secrets.nix;
+  secrets = import ./secrets.nix {pkgs=pkgs;};
   fileAssociations = import ./file-associations.nix;
 in
 {
