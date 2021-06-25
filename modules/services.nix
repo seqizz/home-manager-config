@@ -7,7 +7,7 @@ let
   ) { config = baseconfig; };
   lock-helper = (import ./scripts.nix {pkgs = pkgs;}).lock-helper;
   auto-rotate = (import ./scripts.nix {pkgs = pkgs;}).auto-rotate;
-  secrets = import ./secrets.nix;
+  secrets = import ./secrets.nix {pkgs=pkgs;};
 in
 {
   # TODO: check later, https://rycee.gitlab.io/home-manager/options.html#opt-systemd.user.startServices

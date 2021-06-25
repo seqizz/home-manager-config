@@ -5,7 +5,7 @@ let
   # unstable = import (
     # fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   # ) { config = baseconfig; };
-  secrets = import ./secrets.nix;
+  secrets = import ./secrets.nix {pkgs=pkgs;};
 in
 {
   programs = {

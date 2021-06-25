@@ -26,7 +26,7 @@ in
     allowUnfree = true;
 
     packageOverrides = pkgs: rec {
-      adminapi = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/adminapi.nix {};
+      adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
       pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
       todotxtmenu = pkgs.callPackage ~/.config/nixpkgs/modules/packages/todotxtmenu.nix {};
       wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
