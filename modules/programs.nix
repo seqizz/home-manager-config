@@ -76,5 +76,10 @@ in
         kb-cancel = "Control+c,Escape,Control+g,Control+bracketleft";
       };
     };
+
+    pazi = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 }
