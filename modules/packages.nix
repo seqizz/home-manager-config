@@ -137,15 +137,13 @@ in
     my_scripts.tarsnap-dotfiles
     my_scripts.xinput-toggle
     my_scripts.workman-toggle
-    networkmanagerapplet
-    numlockx
     pamixer # pulseaudio mixer
     papirus-icon-theme
     paoutput
     pavucontrol
     pcmanfm-qt # A file-manager which fucking works
     # pdftk # split-combine pdfs
-    picom # X compositor which sucks
+    picom # X compositor which sucks, also do not use services.picom
     playerctl
     # poppler_utils # for pdfunite
     proxychains
@@ -159,7 +157,6 @@ in
     taskwarrior
     tdesktop # telegram
     todotxtmenu
-    udiskie
     wezterm
     xautomation
     xclip

@@ -58,8 +58,41 @@ in
     ];
   };
 
+  gtk = {
+    enable = true;
+    font = {
+      name = "Noto Sans";
+      size = 10;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 0;
+      gtk-button-images = 1;
+      gtk-icon-theme-name = "Papirus";
+      gtk-menu-images = 1;
+      gtk-enable-event-sounds = 0;
+      gtk-enable-input-feedback-sounds = 0;
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintslight";
+      gtk-xft-rgba = "rgb";
+    };
+  };
+
+  qt = {
+    enable = true;
+    style.name = "Fusion";
+  };
+
   xsession = {
     enable = true;
+    numlock.enable = true;
+
+    pointerCursor = {
+      package = pkgs.capitaine-cursors;
+      name = "capitaine-cursors";
+      size = 32;
+    };
+
     scriptPath = ".hm-xsession";
     windowManager.command = ''
       ${pkgs.dbus}/bin/dbus-run-session ${pkgs.awesome}/bin/awesome --no-argb

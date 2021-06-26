@@ -16,12 +16,41 @@ in
   services = {
     kdeconnect.enable = true;
     playerctld.enable = true;
+    udiskie.enable = true;
+    services.network-manager-applet.enable = true;
 
     redshift = {
       enable = true;
       latitude = "53.551086";
       longitude = "9.993682";
     };
+
+    unclutter = {
+      enable = true;
+      threshold = 15;
+      timeout = 2;
+      extraOptions = [ "ignore-scrolling" ];
+    };
+
+    # XXX: Not yet on 21.05 channel
+    # xidlehook = {
+      # enable = true;
+      # not-when-fullscreen = true;
+      # timers = [
+        # {
+          # # delay = 250;
+          # delay = 30;
+          # command = "${lock-helper}/bin/lock-helper start";
+          # canceller = "${lock-helper}/bin/lock-helper cancel";
+        # }
+        # {
+          # # delay = 120;
+          # delay = 10;
+          # command = "${lock-helper}/bin/lock-helper lock";
+          # canceller = "${lock-helper}/bin/lock-helper cancel";
+        # }
+      # ];
+    # };
   };
 
   systemd.user = {
