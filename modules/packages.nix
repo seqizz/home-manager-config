@@ -156,7 +156,9 @@ in
     tarsnap
     taskwarrior
     tdesktop # telegram
+    tightvnc
     todotxtmenu
+    wally-cli
     wezterm
     xautomation
     xclip
