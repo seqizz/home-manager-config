@@ -71,6 +71,7 @@ in
     # )
     # icedtea_web # java plugin
 
+    (gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     ( pass.withExtensions ( ps: with ps; [ pass-genphrase ]))
     ( unstable.python38.withPackages ( ps: with ps; [
         adminapi
@@ -115,8 +116,6 @@ in
     firefox
     flameshot
     geany
-    gimp
-    gimpPlugins.gmic
     glxinfo
     gnome3.dconf # some apps keep its config in this shit: shotwell
     graphviz # some weird tools *sometimes* need this
