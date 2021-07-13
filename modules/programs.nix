@@ -77,7 +77,7 @@ in
       };
     };
 
-    pazi = {
+    zoxide = {
       enable = true;
       enableZshIntegration = true;
     };

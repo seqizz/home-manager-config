@@ -76,9 +76,7 @@ in
       fi
 
       # zap directory with z
-      eval "$(pazi init zsh)"
-      # select with zf
-      alias zf='z --pipe="fzf"'
+      eval "$(zoxide init zsh)"
     '';
 
     ".gist".text = secrets.gistSecret;
