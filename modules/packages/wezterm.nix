@@ -57,12 +57,12 @@ in
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    # rev = "2e7dc70eaf1b13fb19123e5ae606b4e745114c62";
-    rev = "618f77f2c65d77720613a06b1f0a6be6af12d340";
+    # rev = "618f77f2c65d77720613a06b1f0a6be6af12d340";
+    rev = "b4c4c856833877af78c4ad675bcd3c8c583c2497";
     fetchSubmodules = true;
-    sha256 = "0qj6dyrswysby2z0g8ag0mvsgl8gf68sl5iymzif8mknl05q9phg";
+    sha256 = "054zn499r0csz68l71bsgskxn3df8idijs1w3vgkwimqv6rc3ni2";
   };
-  cargoSha256 = "16s46qc83kkg8bp0c446iabk1bcdjwda2i3shnirp8pq2a0b3569";
+  cargoSha256 = "1pb9h6l31cdsf3ga1gmzvm3wq5l394jlmp9i6rd25ap76jzs5ams";
 
   nativeBuildInputs = [
     pkgconfig
