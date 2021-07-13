@@ -28,7 +28,6 @@ in
     packageOverrides = pkgs: rec {
       adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
       pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
-      todotxtmenu = pkgs.callPackage ~/.config/nixpkgs/modules/packages/todotxtmenu.nix {};
       wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
       paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
       # @Reference patching apps
@@ -149,6 +148,7 @@ in
     puppet-lint
     qpdfview
     # qt5ct # QT5 theme selector
+    simplescreenrecorder
     slock
     spotify
     steam-run # helper tool for running shitty binaries
@@ -156,7 +156,6 @@ in
     taskwarrior
     tdesktop # telegram
     tightvnc
-    todotxtmenu
     wally-cli
     wezterm
     xautomation
