@@ -16,11 +16,15 @@
 
     def current_psi_dict():
         with open('/proc/pressure/cpu', 'r') as psifile:
-            total = psifile.read().split(' ')[4].split('=')[1]
-            return {
-                'value': int(total),
-                'time': int(time())
-            }
+            for line in psifile.readlines():
+                if not line.startswith('full'):
+                    continue
+
+                total = line.split(' ')[4].split('=')[1]
+                return {
+                    'value': int(total),
+                    'time': int(time())
+                }
 
 
     def write_current_value(temp_file):
@@ -60,8 +64,7 @@
         temp_file = get_filename()
 
         try:
-            with open(temp_file) as f:
-                print(get_difference(temp_file))
+            print(get_difference(temp_file))
         except IOError:
             print('-1')
         finally:
