@@ -244,7 +244,7 @@
 
     if [[ "$action" == "start" ]]; then
         # Check if it's already locked and do nothing
-        [[ `${pkgs.procps}/bin/pidof slock` ]] && return
+        [[ `${pkgs.procps}/bin/pidof slock` ]] && exit
 
         save_brightness
         dim_screen
