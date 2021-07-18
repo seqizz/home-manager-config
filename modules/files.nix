@@ -228,16 +228,20 @@ in
       }
       */
     '';
-    ".config/greenclip.cfg".text = ''
-      Config {
-        maxHistoryLength = 200,
-        historyPath = "~/.cache/greenclip.history",
-        staticHistoryPath = "~/.cache/greenclip.staticHistory",
-        imageCachePath = "/tmp/",
-        usePrimarySelectionAsInput = False,
-        blacklistedApps = [],
-        trimSpaceFromSelection = True
-      }'';
+
+    ".config/greenclip.toml".text = ''
+      [greenclip]
+        blacklisted_applications = []
+        enable_image_support = true
+        history_file = "~/.cache/greenclip.history"
+        image_cache_directory = "/tmp/greenclip"
+        max_history_length = 200
+        max_selection_size_bytes = 0
+        trim_space_from_selection = true
+        use_primary_selection_as_input = false
+        static_history = []
+
+    '';
 
     ".trc".text = secrets.rubyTwitterSecret;
 
