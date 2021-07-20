@@ -110,10 +110,11 @@ in
     brightnessctl
     calibre # e-book manager written by a jerk
     chromium
+    clipcat
     ffmpeg
     ffmpegthumbs
     firefox
-    flameshot
+    # flameshot
     geany
     glxinfo
     gnome3.dconf # some apps keep its config in this shit: shotwell
@@ -127,6 +128,7 @@ in
     libnotify
     libreoffice
     lxqt.lximage-qt
+    maim
     meld # diff tool
     mpv
     my_scripts.git-cleanmerged
