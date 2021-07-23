@@ -70,9 +70,10 @@ in
       # Add yubikey to ssh
       if ! [[ `ssh-add -L | grep nist` ]] && [[ `lsusb | grep "0406 Yubico"` ]]; then
         if [[ ! -z `pgrep ssh-add` ]]; then
-          echo "(There seems to be another instance running)"
+          echo "(An instance of ssh-add is waiting)"
+        else
+          ssh-add -s ${pkgs.opensc}/lib/opensc-pkcs11.so
         fi
-        ssh-add -s ${pkgs.opensc}/lib/opensc-pkcs11.so
       fi
 
       # zap directory with z
