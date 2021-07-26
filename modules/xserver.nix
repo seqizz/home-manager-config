@@ -95,7 +95,8 @@ in
 
     scriptPath = ".hm-xsession";
     windowManager.command = ''
-      ${pkgs.dbus}/bin/dbus-run-session ${pkgs.awesome}/bin/awesome --no-argb
+      ${pkgs.dbus}/bin/dbus-run-session ${pkgs.awesome}/bin/awesome
+      # ${pkgs.dbus}/bin/dbus-run-session ${pkgs.awesome}/bin/awesome --no-argb
     '';
   };
 }
