@@ -64,13 +64,7 @@ in
 
     # Now overrides
 
-    ## Java, thank god I am not needing this for a long time
-    # (
-      # oraclejdk.override { pluginSupport = true; }
-    # )
-    # icedtea_web # java plugin
-
-    (gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
+    ( gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     ( pass.withExtensions ( ps: with ps; [ pass-genphrase ]))
     ( unstable.python38.withPackages ( ps: with ps; [
         adminapi
@@ -93,7 +87,8 @@ in
         vimwiki-markdown
         virtualenv
         xlib
-      ]))
+    ]))
+
     # non-stable stuff, subject to change
     unstable.steam
     # unstable.update-nix-fetchgit
@@ -114,7 +109,6 @@ in
     ffmpeg
     ffmpegthumbs
     firefox
-    # flameshot
     geany
     glxinfo
     gnome3.dconf # some apps keep its config in this shit: shotwell
@@ -133,7 +127,6 @@ in
     mpv
     my_scripts.git-cleanmerged
     my_scripts.psitool-script
-    my_scripts.pulseaudio-toggle-hack
     my_scripts.tarsnap-dotfiles
     my_scripts.xinput-toggle
     my_scripts.workman-toggle
