@@ -5,6 +5,7 @@ let
   }).writeSubbedBin;
 
   awk = pkgs.gawk;
+  bash = pkgs.bash;
   brightnessctl = pkgs.brightnessctl;
   coreutils = pkgs.coreutils;
   grep = pkgs.gnugrep;
@@ -21,11 +22,12 @@ in
   auto-rotate = (writeSubbedBin {
     name = "auto-rotate";
     src = ./scripts/auto-rotate;
-    inherit grep sed xinput xrandr coreutils iiosensorproxy inotifytools awk;
+    inherit bash grep sed xinput xrandr coreutils iiosensorproxy inotifytools awk;
   });
   workman-toggle = (writeSubbedBin {
     name = "workman-toggle";
     src = ./scripts/workman-toggle;
+    inherit bash;
   });
   innovpn-toggle = (writeSubbedBin {
     name = "innovpn-toggle";
@@ -46,10 +48,11 @@ in
   xinput-toggle = (writeSubbedBin {
     name = "xinput-toggle";
     src = ./scripts/xinput-toggle;
+    inherit bash;
   });
   lock-helper = (writeSubbedBin {
     name = "lock-helper";
     src = ./scripts/lock-helper;
-    inherit brightnessctl slock coreutils procps libnotify;
+    inherit bash brightnessctl slock coreutils procps libnotify;
   });
 }

@@ -1,4 +1,4 @@
-#!/usr/bin/env @shell@/bin/bash
+#!/usr/bin/env @bash@/bin/bash
 # Auto rotate screen based on device orientation
 # Needs iio (monitor-sensor) and inotifytools
 
