@@ -1,4 +1,4 @@
-#!/usr/bin/env @shell@/bin/bash
+#!/usr/bin/env @bash@/bin/bash
 
 current=$(setxkbmap -query | grep layout | awk '{print $2}')
 
