@@ -110,6 +110,7 @@ in
     ffmpegthumbs
     firefox
     geany
+    gitstatus
     glxinfo
     gnome3.dconf # some apps keep its config in this shit: shotwell
     graphviz # some weird tools *sometimes* need this
