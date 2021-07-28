@@ -109,6 +109,7 @@ in
     ffmpeg
     ffmpegthumbs
     firefox
+    flameshot
     geany
     gitstatus
     glxinfo
@@ -123,7 +124,6 @@ in
     libnotify
     libreoffice
     lxqt.lximage-qt
-    maim
     meld # diff tool
     mpv
     my_scripts.git-cleanmerged
