@@ -21,6 +21,8 @@ user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.disk.capacity", 500000);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("browser.toolbars.bookmarks.showOtherBookmarks", false);
 user_pref("browser.cache.disk.capacity", 100000);
 user_pref("dom.w3c_touch_events.enabled", 1);
+user_pref("network.manage-offline-status", false);
