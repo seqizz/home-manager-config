@@ -21,33 +21,35 @@ in
 {
   # For overrides
   # XXX: move to overlays-compat?
-  nixpkgs.config = {
-    enable = true;
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      enable = true;
+      allowUnfree = true;
 
-    packageOverrides = pkgs: rec {
-      adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
-      pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
-      wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
-      paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
-      # @Reference patching apps
-      # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {
-        # patches = attrs.patches ++ [ ~/syncfolder/dotfiles/nixos/home/gurkan/.config/nixpkgs/modules/packages/pass-dbus.patch ];
-      # });
-      # weechat = (pkgs.weechat.override {
-        # configure = { availablePlugins, ... }: {
-          # plugins = with availablePlugins; [
-            # (python.withPackages (ps: with ps; [
-              # websocket_client
-              # dbus-python
-              # notify
-            # ]))
-          # ];
-        # };
-      # });
+      packageOverrides = pkgs: rec {
+        # adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
+        pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
+        wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
+        paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
+        # @Reference patching apps
+        # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {
+          # patches = attrs.patches ++ [ ~/syncfolder/dotfiles/nixos/home/gurkan/.config/nixpkgs/modules/packages/pass-dbus.patch ];
+        # });
+        # weechat = (pkgs.weechat.override {
+          # configure = { availablePlugins, ... }: {
+            # plugins = with availablePlugins; [
+              # (python.withPackages (ps: with ps; [
+                # websocket_client
+                # dbus-python
+                # notify
+              # ]))
+            # ];
+          # };
+        # });
+      };
+      # @Reference this is sometimes needed
+      # allowBroken = true;
     };
-    # @Reference this is sometimes needed
-    # allowBroken = true;
   };
 
   home.packages = with pkgs;
@@ -59,7 +61,7 @@ in
       discord
       zoom-us
       my_scripts.innovpn-toggle
-      thunderbird
+      thunderbird-bin
     ] else [] ) ++ [
 
     # Now overrides
