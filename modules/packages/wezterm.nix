@@ -12,6 +12,7 @@
 , libX11
 , xcbutil
 , libxcb
+, ncurses
 , xcbutilkeysyms
 , xcbutilimage
 , xcbutilrenderutil
@@ -24,8 +25,7 @@
 , libGL
 , freetype
 , zlib
-, fenix ? import (builtins.fetchTarball https://github.com/figsoda/fenix/archive/ba0167976a65957ef1d4e569e39e89f77e53f3e3.tar.gz )
-, fenixpkgs ?  import <nixpkgs> { overlays = [ fenix ]; }
+, rust-bin  # Comes from https://github.com/oxalica/rust-overlay
 }:
 let
   runtimeDeps = [
@@ -49,27 +49,27 @@ let
     openssl
   ];
 in
-# rustPlatform.buildRustPackage {
-(makeRustPlatform {
-          inherit (fenixpkgs.rust-nightly.minimal) cargo rustc;
-        }).buildRustPackage {
+rustPlatform.buildRustPackage {
   name = "wezterm";
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    # rev = "b4c4c856833877af78c4ad675bcd3c8c583c2497";
-    rev = "1c366063a34184e31d8c3a387257a5a2f583d567";
+    # rev = "1c366063a34184e31d8c3a387257a5a2f583d567";
+    rev = "54f435b904349e538dea3309bcc8283ac54cb073";
     fetchSubmodules = true;
-    sha256 = "0z71g5c9x1rn7q1xbqp08z24m96lry0339kssjrn6jd23a6cfjm8";
+    sha256 = "098fwy4bqqnjza3syqya0wp049vygnnz4rfhaprl4shjz25ya9s9";
   };
-  cargoSha256 = "0ahwlfgx7ns4qx9yg3bfbhzvyfyb2jwmb6y3s6zd7k1nfg4ygldh";
+  cargoSha256 = "02bn470bjpkaadl4lyfg2m6dswmx84y11fgcg1iqkvxjxh1fh1kh";
 
   nativeBuildInputs = [
     pkgconfig
     python3
     perl
-    fenixpkgs.rust-nightly.default.toolchain
+    ncurses
+    rust-bin.stable.latest.default
   ];
+
+  outputs = [ "out" "terminfo" ];
 
   buildInputs = runtimeDeps;
 
@@ -88,6 +88,12 @@ in
     rm $OUT_APP/*.dylib
     cp -r assets/shell-integration/* "$OUT_APP"
     ln -s $out/bin/{wezterm,wezterm-mux-server,wezterm-gui,strip-ansi-escapes} "$OUT_APP"
+  '';
+
+  postInstall = ''
+    mkdir -p $terminfo/share/terminfo/w $out/nix-support
+    tic -x -o $terminfo/share/terminfo termwiz/data/wezterm.terminfo
+    echo "$terminfo" >> $out/nix-support/propagated-user-env-packages
   '';
 
   # prevent further changes to the RPATH
