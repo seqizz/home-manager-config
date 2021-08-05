@@ -66,7 +66,7 @@ in
         };
       width = 40;
       lines = 20;
-      font = "Fira Code 14";
+      font = "FiraCode Nerd Font 14";
       theme = "glue_pro_blue";
       extraConfig = {
         matching = "regex";
