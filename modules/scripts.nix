@@ -33,10 +33,6 @@ in
     name = "innovpn-toggle";
     src = ./scripts/innovpn-toggle;
   });
-  oscyank = (writeSubbedBin {
-    name = "oscyank";
-    src = ./scripts/oscyank;
-  });
   psitool-script = (writeSubbedBin {
     name = "psitool-script";
     src = ./scripts/psitool-script;
