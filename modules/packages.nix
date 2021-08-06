@@ -129,6 +129,7 @@ in
     meld # diff tool
     mpv
     my_scripts.git-cleanmerged
+    my_scripts.oscyank
     my_scripts.psitool-script
     my_scripts.tarsnap-dotfiles
     my_scripts.xinput-toggle
