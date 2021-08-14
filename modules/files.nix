@@ -49,5 +49,7 @@ in
     ".proxychains/proxychains.conf".source = ./config_files/proxychains.conf;
 
     ".config/pylintrc".source = ./config_files/pylintrc;
+
+    ".config/extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
   };
 }
