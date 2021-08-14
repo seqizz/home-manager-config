@@ -61,7 +61,7 @@ in
       discord
       zoom-us
       my_scripts.innovpn-toggle
-      thunderbird-bin
+      thunderbird
     ] else [] ) ++ [
 
     # Now overrides
