@@ -19,13 +19,11 @@ let
 in
 
 {
-  # For overrides
-  # XXX: move to overlays-compat?
   nixpkgs = {
     config = {
       enable = true;
       allowUnfree = true;
-
+      # Quick-overrides
       packageOverrides = pkgs: rec {
         adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
         pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
@@ -47,7 +45,7 @@ in
           # };
         # });
       };
-      # @Reference this is sometimes needed
+      # @Reference sometimes needed
       # allowBroken = true;
     };
   };
@@ -57,7 +55,7 @@ in
     (if sysconfig.networking.hostName == "innixos" || sysconfig.networking.hostName == "innodellix" then [
       slack
       unstable.teams
-      gnome3.gnome-keyring # needed for teams
+      gnome3.gnome-keyring # needed for teams, thanks MS
       discord
       zoom-us
       my_scripts.innovpn-toggle
@@ -93,7 +91,6 @@ in
 
     # non-stable stuff, subject to change
     unstable.steam
-    # unstable.update-nix-fetchgit
 
     # Rest is sorted
     adbfs-rootless
@@ -102,12 +99,11 @@ in
     arandr # I might need manual xrandr one day
     arc-kde-theme # for theming kde apps
     arc-theme
-    ark # compressed file manager
-    blueman # if shits itself, try bluedevil
+    ark
+    blueman
     brightnessctl
-    calibre # e-book manager written by a jerk
+    calibre
     chromium
-    clipcat
     ffmpeg
     ffmpegthumbs
     firefox
@@ -115,9 +111,9 @@ in
     geany
     gitstatus
     glxinfo
-    gnome3.dconf # some apps keep its config in this shit: shotwell
-    graphviz # some weird tools *sometimes* need this
-    grobi # no more autorandr
+    gnome3.dconf # some gnome apps keep its config in this shit e.g. shotwell
+    graphviz # some rarely-needed weird tools
+    grobi # no more autorandr 🎉
     imagemagick
     inotify-tools
     jmtpfs # mount MTP devices easily
@@ -126,7 +122,7 @@ in
     libnotify
     libreoffice
     lxqt.lximage-qt
-    meld # diff tool
+    meld # GUI diff tool
     mpv
     my_scripts.git-cleanmerged
     my_scripts.psitool-script
@@ -155,6 +151,7 @@ in
     taskwarrior
     tdesktop # telegram
     tightvnc
+    update-nix-fetchgit
     wally-cli
     wezterm
     xautomation
