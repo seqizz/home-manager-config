@@ -10,14 +10,27 @@ in
       enable = true;
       defaultApplications = fileAssociations;
     };
-    configFile."mimeapps.list".force = true;
+    configFile = {
+      "tridactyl/tridactylrc".source = ./config_files/tridactyl/tridactylrc;
+      "tridactyl/themes/mytheme.css".source = ./config_files/tridactyl/mytheme.css;
+      "mimeapps.list".force = true;
+
+      "Yubico/u2f_keys".text = secrets.yubicoU2FKeys;
+      "Yubico/YKPersonalization.conf".source = ./config_files/YKPersonalization.conf;
+
+      "greenclip.toml".source = ./config_files/greenclip.toml;
+
+      "tig/config".source = ./config_files/tig;
+
+      "picom.conf".source = ./config_files/picom.conf;
+
+      "pylintrc".source = ./config_files/pylintrc;
+
+      "extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
+    };
   };
 
   home.file = {
-    # Static stuff
-    ".config/Yubico/u2f_keys".text = secrets.yubicoU2FKeys;
-    ".config/Yubico/YKPersonalization.conf".source = ./config_files/YKPersonalization.conf;
-
     ".zshnix".source = ./config_files/zsh_nix;
 
     ".gist".text = secrets.gistSecret;
@@ -34,22 +47,10 @@ in
     ".mozilla/firefox/profiles.ini".source = ./config_files/firefox/profiles.ini;
     ".mozilla/firefox/gurkan.default/user.js".source = ./config_files/firefox/user.js;
     ".mozilla/firefox/gurkan.default/chrome/userChrome.css".source = ./config_files/firefox/userChrome.css;
-
-    ".config/greenclip.toml".source = ./config_files/greenclip.toml;
-
-    ".config/clipcat/clipcat-menu.toml".source = ./config_files/clipcat-menu.toml;
-    ".config/clipcat/clipcatd.toml".source = ./config_files/clipcatd.toml;
+    ".mozilla/native-messaging-hosts/tridactyl.json".source = "${pkgs.tridactyl-native}/lib/mozilla/native-messaging-hosts/tridactyl.json";
 
     ".trc".text = secrets.rubyTwitterSecret;
 
-    ".config/tig/config".source = ./config_files/tig;
-
-    ".config/picom.conf".source = ./config_files/picom.conf;
-
     ".proxychains/proxychains.conf".source = ./config_files/proxychains.conf;
-
-    ".config/pylintrc".source = ./config_files/pylintrc;
-
-    ".config/extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
   };
 }
