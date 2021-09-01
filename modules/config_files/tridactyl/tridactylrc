@@ -11,8 +11,9 @@ set newtab about:blank
 
 " hinting stuff
 set hintnames uniform
-set hintchars 1029384756
+set hintchars APSLDKFMO
 set hintfiltermode vimperator-reflow
+set hintautoselect false
 set hintuppercase false
 set incsearch true
 set modeindicatorshowkeys true
@@ -49,6 +50,7 @@ unbind f
 unbind t
 unbind .
 unbind s
+unbind o
 
 " Hinting
 bind h hint
