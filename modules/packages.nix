@@ -25,6 +25,9 @@ in
       allowUnfree = true;
       # Quick-overrides
       packageOverrides = pkgs: rec {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
         adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
         pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
         wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
@@ -91,6 +94,7 @@ in
 
     # non-stable stuff, subject to change
     unstable.steam
+    nur.repos.mic92.reveal-md
 
     # Rest is sorted
     adbfs-rootless
