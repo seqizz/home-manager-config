@@ -10,10 +10,10 @@ sanitize tridactyllocal tridactylsync
 set newtab about:blank
 
 " hinting stuff
-set hintnames uniform
-set hintchars APSLDKFMO
+set hintnames numeric
+" set hintchars asdfpolkm
 set hintfiltermode vimperator-reflow
-set hintautoselect false
+set hintautoselect true
 set hintuppercase false
 set incsearch true
 set modeindicatorshowkeys true
