@@ -54,9 +54,9 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    rev = "2337c06c0fde583466c20e262c7bdd1300c2369a";
+    rev = "ca89181098d10dbb82ccfb1cd4945f48a1293a9b";
     fetchSubmodules = true;
-    sha256 = "15mfyfvpw9z4365qa48kyrhfyx6fqiyhsw9mkcg8hnhbcc8zwwj9";
+    sha256 = "13l30nrw3j8sk6cgpbpcpm3rz31i16l6pm3mabqn28ry5lx3l1ka";
   };
   # cargoSha256 = "0000000000000000000000000000000000000000000000000000";
   cargoSha256 = "19j48gxxnjz42paildm1mrh2mcb7wps4glf55ymx5y8q3n4yx8j8";
