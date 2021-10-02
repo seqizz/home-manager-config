@@ -37,6 +37,8 @@ in
 
     ".tarsnap.key".text = secrets.tarsnapKey;
 
+    ".rustypaste/config.toml".text = secrets.rustypasteSecret;
+
     ".tarsnaprc".source = ./config_files/tarsnaprc;
 
     ".thunderbird/profiles.ini".source = ./config_files/thunderbird/profiles.ini;
