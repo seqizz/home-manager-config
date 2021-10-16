@@ -58,6 +58,11 @@ in
 
     rofi = {
       enable = true;
+      package = pkgs.rofi.override {
+        plugins = [
+          pkgs.rofi-emoji
+        ];
+      };
       pass = {
         enable = true;
         extraConfig = ''
