@@ -35,3 +35,12 @@ user_pref("network.manage-offline-status", false);
 
 /* Helps on hidpi ***/
 user_pref("layout.css.devPixelsPerPx", 1.2);
+
+/* Moronic ad stuff ***/
+user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.sponsoredTopSites", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("browser.newtabpage.activity-stream.discoverystream.sponsored-collections.enabled", false);
+user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites", false);
