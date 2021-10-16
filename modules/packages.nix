@@ -93,7 +93,7 @@ in
     ]))
 
     # non-stable stuff, subject to change
-    unstable.steam
+    steam
     nur.repos.mic92.reveal-md
 
     # Rest is sorted
