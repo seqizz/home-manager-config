@@ -6,8 +6,8 @@ if [[ $1 == "query" ]]; then
     echo $current
 else
     if [ $current == 'tr' ];then
-    setxkbmap workman-p-tr
+        setxkbmap workman-p-tr
     else
-    setxkbmap tr
+        setxkbmap tr
     fi
 fi
