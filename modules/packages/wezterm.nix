@@ -7,6 +7,7 @@
 , fontconfig
 , python3
 , openssl
+, openssh
 , perl
 , dbus
 , libX11
@@ -54,12 +55,12 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    rev = "ca89181098d10dbb82ccfb1cd4945f48a1293a9b";
+    rev = "04768fd1e2881b6185ae8c6d5f6902d38257b4f5";
     fetchSubmodules = true;
-    sha256 = "13l30nrw3j8sk6cgpbpcpm3rz31i16l6pm3mabqn28ry5lx3l1ka";
+    sha256 = "000fnl79b34xdcn8lwfsqlwp13g4xkc1f54c2rb4i89nlzjrfl5l";
   };
   # cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  cargoSha256 = "19j48gxxnjz42paildm1mrh2mcb7wps4glf55ymx5y8q3n4yx8j8";
+  cargoSha256 = "1c4g1jjqxznsg9n2di2489nqnfg8x4fffjdk53bvfzyvmgzsw4hk";
 
   nativeBuildInputs = [
     pkgconfig
@@ -68,6 +69,13 @@ rustPlatform.buildRustPackage {
     ncurses
     rust-bin.stable.latest.default
   ];
+
+  doCheck = false;
+
+  # preBuildPhases = ["preBuildPhase"];
+  # preBuildPhase = ''
+    # substituteInPlace wezterm-ssh/tests/sshd.rs --replace /usr/sbin/sshd ${openssh}/bin/sshd
+  # '';
 
   outputs = [ "out" "terminfo" ];
 
