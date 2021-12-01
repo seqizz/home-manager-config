@@ -26,6 +26,18 @@ in
         # ];
       # }
       {
+        name = "inno-dell-dock-tr";
+        outputs_present = [ "eDP-1" "DP-1-3" ];
+        outputs_connected = [ "DP-1-3" ];
+        primary = "DP-1-3";
+        atomic = true;
+        # configure_single = "DP-1-3@3840x2160";
+        configure_single = "DP-1-3@2560x1440";
+        execute_after = [
+          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 112"
+        ];
+      }
+      {
         name = "inno-dell-dock-office";
         outputs_present = [ "eDP-1" "DP-3-1" "DP-3-2" ];
         outputs_connected = [ "DP-3-1" "DP-3-2" ];
