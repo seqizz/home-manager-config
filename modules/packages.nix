@@ -28,8 +28,8 @@ in
         nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
           inherit pkgs;
         };
-        adminapi = unstable.python38Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
-        pyvis = unstable.python38Packages.callPackage ~/.config/nixpkgs/modules/packages/pyvis.nix {};
+        adminapi = unstable.python3Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
+        tapop100 = unstable.python3Packages.callPackage ~/.config/nixpkgs/modules/packages/tapop100.nix {};
         wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
         # @Reference patching apps
@@ -69,7 +69,7 @@ in
 
     ( gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     ( pass.withExtensions ( ps: with ps; [ pass-genphrase ]))
-    ( unstable.python38.withPackages ( ps: with ps; [
+    ( unstable.python3.withPackages ( ps: with ps; [
         adminapi
         black
         coverage
@@ -83,10 +83,10 @@ in
         pylint
         pynvim
         pysnooper
-        pyvis
         pyyaml
         requests
         setuptools
+        tapop100
         vimwiki-markdown
         virtualenv
         xlib
@@ -128,6 +128,7 @@ in
     lxqt.lximage-qt
     meld # GUI diff tool
     mpv
+    my_scripts.bulb-toggle
     my_scripts.git-cleanmerged
     my_scripts.psitool-script
     my_scripts.tarsnap-dotfiles

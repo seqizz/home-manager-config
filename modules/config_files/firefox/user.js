@@ -33,9 +33,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 /* Do not have "offline mode" for fucks sake, we're not on 1992 ***/
 user_pref("network.manage-offline-status", false);
 
-/* Helps on hidpi ***/
-user_pref("layout.css.devPixelsPerPx", 1.2);
-
 /* Moronic ad stuff ***/
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.sponsoredTopSites", false);
