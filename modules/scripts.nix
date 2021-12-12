@@ -29,6 +29,10 @@ in
     src = ./scripts/workman-toggle;
     inherit bash;
   });
+  bulb-toggle = (writeSubbedBin {
+    name = "bulb-toggle";
+    src = ./scripts/bulb-toggle;
+  });
   innovpn-toggle = (writeSubbedBin {
     name = "innovpn-toggle";
     src = ./scripts/innovpn-toggle;
