@@ -5,6 +5,10 @@ let
   # unstable = import (
     # fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   # ) { config = baseconfig; };
+  get_dpi_commands = list: [
+    "${pkgs.xorg.xrandr}/bin/xrandr --dpi ${toString list.dpi}"
+    "echo 'Xft.dpi: ${toString list.dpi}' | ${pkgs.xorg.xrdb}/bin/xrdb -merge"
+  ];
 in
 {
 
@@ -27,15 +31,12 @@ in
       # }
       {
         name = "inno-dell-dock-tr";
-        outputs_present = [ "eDP-1" "DP-1-3" ];
-        outputs_connected = [ "DP-1-3" ];
-        primary = "DP-1-3";
+        outputs_present = [ "eDP-1" "DP-1-2" ];
+        outputs_connected = [ "DP-1-2" ];
+        primary = "DP-1-2";
         atomic = true;
-        # configure_single = "DP-1-3@3840x2160";
-        configure_single = "DP-1-3@2560x1440";
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 112"
-        ];
+        configure_single = "DP-1-2@3840x2160";
+        execute_after = get_dpi_commands { dpi=192; };
       }
       {
         name = "inno-dell-dock-office";
@@ -44,9 +45,7 @@ in
         primary = "DP-3-1";
         atomic = true;
         configure_row = [ "DP-3-2" "DP-3-1" ];
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 96"
-        ];
+        execute_after = get_dpi_commands { dpi=96; };
       }
       {
         name = "inno-dell-dock";
@@ -55,9 +54,7 @@ in
         primary = "DP-3-3";
         atomic = true;
         configure_row = [ "DP-3-2" "DP-3-3" ];
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 96"
-        ];
+        execute_after = get_dpi_commands { dpi=96; };
       }
       {
         name = "single-on-dock";
@@ -66,9 +63,7 @@ in
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 112"
-        ];
+        execute_after = get_dpi_commands { dpi=112; };
       }
       {
         name = "mobile";
@@ -77,18 +72,14 @@ in
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 112"
-        ];
+        execute_after = get_dpi_commands { dpi=112; };
       }
       {
         name = "fallback";
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = [
-          "${pkgs.xorg.xrandr}/bin/xrandr --dpi 112"
-        ];
+        execute_after = get_dpi_commands { dpi=112; };
       }
     ];
   };
@@ -125,7 +116,7 @@ in
     pointerCursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
-      size = 32;
+      size = 48;
     };
 
     scriptPath = ".hm-xsession";
