@@ -155,7 +155,6 @@ in
     tarsnap
     taskwarrior
     tdesktop # telegram
-    tightvnc
     update-nix-fetchgit
     wally-cli
     wezterm
