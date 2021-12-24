@@ -9,7 +9,7 @@ from time import time
 def current_psi_dict():
     with open('/proc/pressure/cpu', 'r') as psifile:
         for line in psifile.readlines():
-            if not line.startswith('full'):
+            if not line.startswith('some'):
                 continue
 
             total = line.split(' ')[4].split('=')[1]
