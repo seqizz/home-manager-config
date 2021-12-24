@@ -63,7 +63,7 @@ in
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = get_dpi_commands { dpi=112; };
+        execute_after = get_dpi_commands { dpi=118; };
       }
       {
         name = "mobile";
@@ -72,14 +72,14 @@ in
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = get_dpi_commands { dpi=112; };
+        execute_after = get_dpi_commands { dpi=118; };
       }
       {
         name = "fallback";
         configure_single = "eDP-1@1920x1200";
         primary = true;
         atomic = true;
-        execute_after = get_dpi_commands { dpi=112; };
+        execute_after = get_dpi_commands { dpi=118; };
       }
     ];
   };
