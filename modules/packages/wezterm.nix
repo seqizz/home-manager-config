@@ -55,19 +55,20 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    rev = "48dd57ab9f2f381e66d590e002ce11620ee03fc3";
+    rev = "20220101-133340-7edc5b5a";
     fetchSubmodules = true;
-    sha256 = "0ipgxhqlql2zmg3mdaging7divs3zn8rsyx56dckhr97dj00fa4z";
+    sha256 = "sha256-UZCvKbZdZ7K4RtvVLmr44M612tqd4rkrjF2tys0JHNM=";
   };
   # cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  cargoSha256 = "1fdm84kzkha4ryz7fh97acagl0bbim6fs2hsc7kzd8cqqr89bid7";
+  cargoSha256 = "1gp486979dkp1mq6i8ml0xds4mnsicgmhslxbmxlfk9zjq5bidjn";
 
   nativeBuildInputs = [
     pkgconfig
     python3
     perl
     ncurses
-    rust-bin.stable.latest.default
+    rust-bin.nightly.latest.default
+    # rust-bin.stable.latest.default
   ];
 
   doCheck = false;
@@ -82,7 +83,8 @@ rustPlatform.buildRustPackage {
   buildInputs = runtimeDeps;
 
   postPatch = ''
-    echo "2021-g1" > .tag
+    echo "2022-g1" > .tag
+    sed -i '1i cargo-features = ["edition2021"]' procinfo/Cargo.toml
   '';
 
   preFixup = lib.optionalString stdenv.isLinux ''
