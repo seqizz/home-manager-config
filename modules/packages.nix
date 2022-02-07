@@ -32,6 +32,16 @@ in
         tapop100 = unstable.python3Packages.callPackage ~/.config/nixpkgs/modules/packages/tapop100.nix {};
         wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
+        picom = pkgs.picom.overrideAttrs (old: {
+          version = "unstable-2022-02-05";
+          src = pkgs.fetchFromGitHub {
+            owner = "yshui";
+            repo = "picom";
+            rev = "928963721c8789fc5f27949e8b0730771aab940d";
+            sha256 = "1ri3fcgf2v1pbf9kss148z66zmgy25d5nvh79bi0cmdr86flgvxa";
+            fetchSubmodules = true;
+          };
+        });
         # @Reference patching apps
         # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {
           # patches = attrs.patches ++ [ ~/syncfolder/dotfiles/nixos/home/gurkan/.config/nixpkgs/modules/packages/pass-dbus.patch ];
