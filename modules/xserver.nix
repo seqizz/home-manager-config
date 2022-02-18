@@ -116,7 +116,7 @@ in
     pointerCursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
-      size = 48;
+      size = 32;
     };
 
     scriptPath = ".hm-xsession";
