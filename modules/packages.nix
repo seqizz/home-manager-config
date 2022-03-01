@@ -69,7 +69,7 @@ in
       slack
       unstable.teams
       gnome3.gnome-keyring # needed for teams, thanks MS
-      discord
+      unstable.discord
       zoom-us
       my_scripts.innovpn-toggle
       thunderbird
@@ -148,6 +148,7 @@ in
     pamixer # pulseaudio mixer
     papirus-icon-theme
     paoutput
+    pasystray
     pavucontrol
     pcmanfm-qt # A file-manager which fucking works
     # pdftk # split-combine pdfs
