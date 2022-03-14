@@ -17,9 +17,11 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("browser.cache.disk.capacity", 100000);
 user_pref("browser.cache.disk.smart_size.enabled", false);
 
-/* Feature stuff ***/
+/* Feature & security stuff ***/
 user_pref("dom.w3c_touch_events.enabled", 1);
+user_pref("dom.security.https_only_mode", true);
 user_pref("security.webauth.u2f", true);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.toolbars.bookmarks.showOtherBookmarks", false);
@@ -29,9 +31,24 @@ user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.doubleClickSelectsAll", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.contentblocking.category", "strict");
+user_pref("privacy.partition.serviceWorkers", true);
 
 /* Do not have "offline mode" for fucks sake, we're not on 1992 ***/
 user_pref("network.manage-offline-status", false);
+
+/* Yeah I don't like that popup mozilla ***/
+user_pref("browser.download.alwaysOpenPanel", false);
+
+/* Wider cooler scrollbars ***/
+user_pref("widget.non-native-theme.scrollbar.size.override", 15);
+user_pref("widget.non-native-theme.scrollbar.style", 1);
+
+/* I heard this increases performance ***/
+user_pref("accessibility.force_disabled", 1);
+
+/* Yo fuck off what is 1 second wait***/
+user_pref("security.dialog_enable_delay", 200);
 
 /* Moronic ad stuff ***/
 user_pref("browser.urlbar.suggest.topsites", false);
