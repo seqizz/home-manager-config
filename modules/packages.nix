@@ -70,7 +70,7 @@ in
       unstable.teams
       gnome3.gnome-keyring # needed for teams, thanks MS
       unstable.discord
-      zoom-us
+      unstable.zoom-us
       my_scripts.innovpn-toggle
       thunderbird
     ] else [] ) ++ [
