@@ -55,12 +55,12 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    rev = "4a1c4b55662e6f6217f84137baa5ed0776753e56";
+    rev = "a0b8d2196a260726eca28b32fecaeb87420851ec";
     fetchSubmodules = true;
-    sha256 = "06d0jfdzihwg99qwxfcizvc12bg7i79hnwb5mv78l6i2jlawv1ml";
+    sha256 = "09lp7ck7bwhjl36ksl0jq8bgwn91y7madfrbzan0l6hb3137vfjw";
   };
   # cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  cargoSha256 = "14a0qqqkymbfllbbrg49h5n29gy3d8cj7w6szpwhk9wgffxq49wn";
+  cargoSha256 = "0fzxs6dfpq5k3s90y6b821qr0qvwpjifssdw6wabnk4b5l1mhhp5";
 
   nativeBuildInputs = [
     pkgconfig
@@ -68,15 +68,9 @@ rustPlatform.buildRustPackage {
     perl
     ncurses
     rust-bin.nightly.latest.default
-    # rust-bin.stable.latest.default
   ];
 
   doCheck = false;
-
-  # preBuildPhases = ["preBuildPhase"];
-  # preBuildPhase = ''
-    # substituteInPlace wezterm-ssh/tests/sshd.rs --replace /usr/sbin/sshd ${openssh}/bin/sshd
-  # '';
 
   outputs = [ "out" "terminfo" ];
 
