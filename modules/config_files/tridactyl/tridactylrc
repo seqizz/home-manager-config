@@ -17,6 +17,8 @@ set hintautoselect true
 set hintuppercase false
 set incsearch true
 set modeindicatorshowkeys true
+" Use both clipboards
+set yankto both
 
 " Git{Hub,Lab} git clone via SSH yank
 bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git") | clipboard yank
@@ -51,6 +53,11 @@ unbind t
 unbind .
 unbind s
 unbind o
+
+bind --mode=visual <S-Right> js document.getSelection().modify("extend","forward","character")
+bind --mode=visual <S-Left> js document.getSelection().modify("extend","backward","character")
+bind --mode=visual <S-Down> js document.getSelection().modify("extend","forward","line")
+bind --mode=visual <S-Up> js document.getSelection().modify("extend","backward","line")
 
 " Hinting
 bind h hint
