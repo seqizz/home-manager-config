@@ -31,8 +31,10 @@ in
   };
 
   home.file = {
-    ".zshnix".source = ./config_files/zsh_nix;
-
+    ".zshnix".source = pkgs.substituteAll {
+      src = ./config_files/zsh_nix;
+      openscPath = "${pkgs.opensc.outPath}";
+    };
     ".gist".text = secrets.gistSecret;
 
     ".tarsnap.key".text = secrets.tarsnapKey;
