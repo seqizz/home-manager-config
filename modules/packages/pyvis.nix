@@ -10,15 +10,15 @@
 
 buildPythonPackage rec {
   pname = "pyvis";
-  version = "0.0.1";
+  version = "unstable-2022-04-15";
   format = "pyproject";
   disabled = pythonOlder "3.6";
 
   src = fetchFromGitHub {
     owner = "WestHealth";
-    repo = pname;
-    rev = "4c521302abf9725dcbe7f59962baf85360b2718d";
-    sha256 = "13qrxls89sgx1f2381wb8lrs3w4vfb4ik09rdy5zhjbdki1cg1hd";
+    repo = "pyvis";
+    rev = "eaa24b882401e2e74353efa78bf4e71a880cfc47";
+    sha256 = "0zk23mvmma7acfg7rfml5k0ai17w4id58m9a2hfwlm4jfqxqwfd7";
   };
 
   # preConfigure = ''
