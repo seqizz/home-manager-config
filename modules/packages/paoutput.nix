@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation {
   name = "paoutput";
-  version = "0.1";
+  version = "unstable-2020-07-02";
 
   src = fetchgit {
     url = "https://git.gurkan.in/gurkan/paoutput.git";

@@ -4,13 +4,13 @@
 }:
 python3.pkgs.buildPythonPackage {
   pname = "TapoP100";
-  version = "unstable-2021-08-21";
+  version = "unstable-2022-04-04";
 
   src = fetchFromGitHub {
     owner = "fishbigger";
     repo = "TapoP100";
-    rev = "345eacccba926cd47fc751eca1b338480a3defe1";
-    sha256 = "1w9qyi2kqcvdhdiijwj5qc61w5n9ngl9yi4i5waaarjiwiirrlcg";
+    rev = "4e0458ff300102f630d953ebb463bfd7dff05f7a";
+    sha256 = "0lnlkza5v5d1xdc1irvj5zln3yc7aqy7cr9d0qxd3w7wd5ryiaip";
   };
 
   # Pinning without a real need
