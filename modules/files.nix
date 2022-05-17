@@ -27,6 +27,8 @@ in
       "pylintrc".source = ./config_files/pylintrc;
 
       "extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
+
+      "geany/filedefs/filetypes.common".source = ./config_files/geany_styling;
     };
   };
 
