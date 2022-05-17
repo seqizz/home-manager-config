@@ -57,7 +57,7 @@ in
         execute_after = get_dpi_commands { dpi=96; };
       }
       {
-        name = "single-on-dock";
+        name = "single";
         outputs_connected = [ "eDP-1" ];
         outputs_present = [ "DP-1" "DP-2" "DP-3" "DP-4" "DP-3-1" "DP-3-2" "DP-3-3" ];
         configure_single = "eDP-1@1920x1200";
@@ -65,15 +65,15 @@ in
         atomic = true;
         execute_after = get_dpi_commands { dpi=118; };
       }
-      {
-        name = "mobile";
-        outputs_connected = [ "eDP-1" ];
-        outputs_present = [ "DP-1" "DP-2" "DP-3" "DP-4" ];
-        configure_single = "eDP-1@1920x1200";
-        primary = true;
-        atomic = true;
-        execute_after = get_dpi_commands { dpi=118; };
-      }
+      # {
+        # name = "mobile";
+        # outputs_connected = [ "eDP-1" ];
+        # outputs_present = [ "DP-1" "DP-2" "DP-3" "DP-4" ];
+        # configure_single = "eDP-1@1920x1200";
+        # primary = true;
+        # atomic = true;
+        # execute_after = get_dpi_commands { dpi=118; };
+      # }
       {
         name = "fallback";
         configure_single = "eDP-1@1920x1200";
