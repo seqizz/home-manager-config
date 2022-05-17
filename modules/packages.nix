@@ -105,6 +105,8 @@ in
     # non-stable stuff, subject to change
     steam
     nur.repos.mic92.reveal-md
+    unstable.tdesktop # telegram
+    unstable.flameshot
 
     # Rest is sorted
     adbfs-rootless
@@ -121,7 +123,6 @@ in
     ffmpeg
     ffmpegthumbs
     firefox
-    flameshot
     geany
     gitstatus
     glxinfo
@@ -165,7 +166,6 @@ in
     steam-run # helper tool for running shitty binaries
     tarsnap
     taskwarrior
-    tdesktop # telegram
     update-nix-fetchgit
     wally-cli
     wezterm
