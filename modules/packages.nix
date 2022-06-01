@@ -120,13 +120,13 @@ in
     brightnessctl
     calibre
     chromium
+    dconf # some gnome apps keep its config in this shit e.g. shotwell
     ffmpeg
     ffmpegthumbs
     firefox
     geany
     gitstatus
     glxinfo
-    gnome3.dconf # some gnome apps keep its config in this shit e.g. shotwell
     graphviz # some rarely-needed weird tools
     grobi # no more autorandr 🎉
     imagemagick
@@ -172,7 +172,7 @@ in
     xautomation
     xclip
     xdotool
-    xlibs.xmodmap
+    xorg.xmodmap
     xorg.xdpyinfo
     xorg.xev
     xorg.xkill
