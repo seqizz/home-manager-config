@@ -113,16 +113,18 @@ in
     enable = true;
     numlock.enable = true;
 
-    pointerCursor = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
-      size = 32;
-    };
-
     scriptPath = ".hm-xsession";
     # ${pkgs.dbus}/bin/dbus-run-session ${pkgs.myAwesome}/bin/awesome
     windowManager.command = ''
       ${pkgs.dbus}/bin/dbus-run-session ${pkgs.awesome}/bin/awesome
     '';
   };
+
+  home.pointerCursor = {
+    x11.enable = true;
+    package = pkgs.capitaine-cursors;
+    name = "capitaine-cursors";
+    size = 32;
+  };
+
 }
