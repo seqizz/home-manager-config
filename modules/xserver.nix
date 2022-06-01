@@ -17,18 +17,6 @@ in
   services.grobi = {
     enable = true;
     rules = [
-      # Patch is not in yet: https://github.com/fd0/grobi/pull/22
-      # {
-        # name = "inno-presentation";
-        # outputs_present = [ "eDP-1" "DP-3" ];
-        # outputs_connected = [ "DP-3" "eDP-1" ];
-        # primary = "eDP-1";
-        # atomic = true;
-        # configure_mirror = [ "DP-3@1920x1080" "eDP-1@1920x1080" ];
-        # execute_after = [
-          # "${pkgs.xorg.xrandr}/bin/xrandr --dpi 96"
-        # ];
-      # }
       {
         name = "inno-dell-dock-tr";
         outputs_present = [ "eDP-1" "DP-1-2" ];
@@ -61,23 +49,14 @@ in
         outputs_connected = [ "eDP-1" ];
         outputs_present = [ "DP-1" "DP-2" "DP-3" "DP-4" "DP-3-1" "DP-3-2" "DP-3-3" ];
         configure_single = "eDP-1@1920x1200";
-        primary = true;
+        primary = "eDP-1";
         atomic = true;
         execute_after = get_dpi_commands { dpi=118; };
       }
-      # {
-        # name = "mobile";
-        # outputs_connected = [ "eDP-1" ];
-        # outputs_present = [ "DP-1" "DP-2" "DP-3" "DP-4" ];
-        # configure_single = "eDP-1@1920x1200";
-        # primary = true;
-        # atomic = true;
-        # execute_after = get_dpi_commands { dpi=118; };
-      # }
       {
         name = "fallback";
         configure_single = "eDP-1@1920x1200";
-        primary = true;
+        primary = "eDP-1";
         atomic = true;
         execute_after = get_dpi_commands { dpi=118; };
       }
