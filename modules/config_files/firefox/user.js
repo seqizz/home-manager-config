@@ -27,12 +27,15 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.toolbars.bookmarks.showOtherBookmarks", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("dom.webnotifications.enabled", false);
-user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.doubleClickSelectsAll", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.partition.serviceWorkers", true);
+
+/* I am not in content with this, but can't find a better way ***/
+user_pref("browser.download.useDownloadDir", true);
+user_pref("browser.download.dir", "/home/gurkan/Downloads");
 
 /* Do not have "offline mode" for fucks sake, we're not on 1992 ***/
 user_pref("network.manage-offline-status", false);
