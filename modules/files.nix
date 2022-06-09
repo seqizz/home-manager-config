@@ -28,6 +28,8 @@ in
 
       "extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
 
+      "sheldon/plugins.toml".source = ./config_files/sheldon-plugins;
+
       "geany/filedefs/filetypes.common".source = ./config_files/geany_styling;
     };
   };
