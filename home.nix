@@ -11,22 +11,22 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     ./modules/includes.nix
   ];
 
-  home.activation.fuckMicrosoft= dagEntryBefore ["checkLinkTargets"] ''
+  home.activation.fuckMicrosoft = dagEntryBefore ["checkLinkTargets"] ''
     echo "Removing the crap some moronic apps are placing.."
     find ~ -name "*.FUCK" -print -delete
   '';
 
-  # XXX: declare plugins in zshrc when there is another method than
+  # XXX: Managing plugins via sheldon, since nix-way is basically
   # "Oh let's write the hashsums of every f-king plugin's every version we use"
-  home.activation.updateZplug= dagEntryAfter ["writeBoundary"] ''
+  home.activation.updateSheldon = dagEntryAfter ["writeBoundary"] ''
     #!/usr/bin/env zsh
 
-    if [ ! -e /tmp/.zplug_updated ] || [ `stat --format=%Y /tmp/.zplug_updated` -le $(( `date +%s` - 86400 )) ]; then
-      echo "Updating zplug plugins.."
-      zsh -c "source ~/.zshrc ; zplug update" || echo "Had problems, ignoring!"
-      touch /tmp/.zplug_updated
+    if [ ! -e /tmp/.sheldon_updated ] || [ `stat --format=%Y /tmp/.sheldon_updated` -le $(( `date +%s` - 86400 )) ]; then
+      echo "Updating sheldon plugins.."
+      sheldon lock --update || echo "Had problems, ignoring!"
+      touch /tmp/.sheldon_updated
     else
-      echo "Skipping zplug update, recently done"
+      echo "Skipping sheldon update, recently done"
     fi
   '';
 
