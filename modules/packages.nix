@@ -33,12 +33,22 @@ in
         wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
         picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2022-02-05";
+          version = "unstable-2022-04-13";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "928963721c8789fc5f27949e8b0730771aab940d";
-            sha256 = "1ri3fcgf2v1pbf9kss148z66zmgy25d5nvh79bi0cmdr86flgvxa";
+            rev = "cd50596f0ed81c0aa28cefed62176bd6f050a1c6";
+            sha256 = "0lh3p3lkafkb2f0vqd5d99xr4wi47sgb57x65wa2cika8pz5sikv";
+            fetchSubmodules = true;
+          };
+        });
+        flameshot = pkgs.flameshot.overrideAttrs (old: {
+          version = "unstable-2022-06-20";
+          src = pkgs.fetchFromGitHub {
+            owner = "flameshot-org";
+            repo = "flameshot";
+            rev = "10a8c318cfd08a029a8cca184e78c9f627a5421b";
+            sha256 = "1i4f4xcbvdc70j4xa90mnw37vfnrzirbmzw97cf37gggy6lz491s";
             fetchSubmodules = true;
           };
         });
@@ -106,7 +116,6 @@ in
     steam
     nur.repos.mic92.reveal-md
     unstable.tdesktop # telegram
-    unstable.flameshot
 
     # Rest is sorted
     adbfs-rootless
@@ -124,6 +133,7 @@ in
     ffmpeg
     ffmpegthumbs
     firefox
+    flameshot
     geany
     gitstatus
     glxinfo
