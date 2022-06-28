@@ -43,12 +43,12 @@ in
           };
         });
         flameshot = pkgs.flameshot.overrideAttrs (old: {
-          version = "unstable-2022-06-20";
+          version = "unstable-2022-06-21";
           src = pkgs.fetchFromGitHub {
             owner = "flameshot-org";
             repo = "flameshot";
-            rev = "10a8c318cfd08a029a8cca184e78c9f627a5421b";
-            sha256 = "1i4f4xcbvdc70j4xa90mnw37vfnrzirbmzw97cf37gggy6lz491s";
+            rev = "b4737f8ac65083c084696811c021bcb61fa750ac";
+            sha256 = "0r2lvh0rp3vgisy41y2cf21fmfgbfzhkbcg6dk9i8y6shifvw987";
             fetchSubmodules = true;
           };
         });
