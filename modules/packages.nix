@@ -42,16 +42,6 @@ in
             fetchSubmodules = true;
           };
         });
-        flameshot = pkgs.flameshot.overrideAttrs (old: {
-          version = "unstable-2022-06-21";
-          src = pkgs.fetchFromGitHub {
-            owner = "flameshot-org";
-            repo = "flameshot";
-            rev = "b4737f8ac65083c084696811c021bcb61fa750ac";
-            sha256 = "0r2lvh0rp3vgisy41y2cf21fmfgbfzhkbcg6dk9i8y6shifvw987";
-            fetchSubmodules = true;
-          };
-        });
         # @Reference patching apps
         # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {
           # patches = attrs.patches ++ [ ~/syncfolder/dotfiles/nixos/home/gurkan/.config/nixpkgs/modules/packages/pass-dbus.patch ];

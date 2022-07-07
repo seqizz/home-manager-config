@@ -40,9 +40,6 @@ user_pref("browser.download.dir", "/home/gurkan/Downloads");
 /* Do not have "offline mode" for fucks sake, we're not on 1992 ***/
 user_pref("network.manage-offline-status", false);
 
-/* Yeah I don't like that popup mozilla ***/
-user_pref("browser.download.alwaysOpenPanel", false);
-
 /* Wider cooler scrollbars ***/
 user_pref("widget.non-native-theme.scrollbar.size.override", 15);
 user_pref("widget.non-native-theme.scrollbar.style", 1);
