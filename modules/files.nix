@@ -39,6 +39,10 @@ in
       src = ./config_files/zsh_nix;
       openscPath = "${pkgs.opensc.outPath}";
     };
+    ".gnupg/gpg-agent.conf".source = pkgs.substituteAll {
+      src = ./config_files/gpg-agent;
+      pinentryRofiPath = "${pkgs.pinentry-rofi.outPath}";
+    };
     ".gist".text = secrets.gistSecret;
 
     ".tarsnap.key".text = secrets.tarsnapKey;

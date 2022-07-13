@@ -32,6 +32,20 @@ in
       extraOptions = [ "ignore-scrolling" ];
     };
 
+    # XXX: not yet, MR not merged and shit is not working with:
+    # /bin/sh: line 1: env: command not found
+    # Fuk me if I understand, reverting for now
+    # gpg-agent = {
+      # enable = true;
+      # defaultCacheTtl = 86400;
+      # maxCacheTtl = 86400;
+      # extraConfig = ''
+        # pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
+        # auto-expand-secmem
+      # '';
+      # verbose = true;
+    # };
+
     # XXX: Not yet on 21.05 channel
     # xidlehook = {
       # enable = true;
@@ -116,3 +130,4 @@ in
     };
   };
 }
+#  vim: set ts=2 sw=2 tw=0 et :
