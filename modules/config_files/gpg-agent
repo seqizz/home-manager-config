@@ -1,0 +1,4 @@
+default-cache-ttl 86400
+max-cache-ttl 86400
+pinentry-program @pinentryRofiPath@/bin/pinentry-rofi
+auto-expand-secmem

@@ -32,6 +32,7 @@ in
         tapop100 = unstable.python3Packages.callPackage ~/.config/nixpkgs/modules/packages/tapop100.nix {};
         wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
+        pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         picom = pkgs.picom.overrideAttrs (old: {
           version = "unstable-2022-04-13";
           src = pkgs.fetchFromGitHub {
@@ -154,6 +155,7 @@ in
     pcmanfm-qt # A file-manager which fucking works
     # pdftk # split-combine pdfs
     picom # X compositor which sucks, also do not use services.picom
+    pinentry-rofi
     playerctl
     # poppler_utils # for pdfunite
     proxychains

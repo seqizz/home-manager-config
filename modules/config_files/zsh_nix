@@ -6,6 +6,3 @@ if ! [[ `ssh-add -L | grep nist` ]] && [[ `lsusb | grep "0406 Yubico"` ]]; then
     ssh-add -s @openscPath@/lib/opensc-pkcs11.so
   fi
 fi
-
-# zap directory with z
-eval "$(zoxide init zsh)"
