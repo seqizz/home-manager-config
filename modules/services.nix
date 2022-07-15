@@ -32,18 +32,19 @@ in
       extraOptions = [ "ignore-scrolling" ];
     };
 
-    # XXX: not yet, MR not merged and shit is not working with:
+    # XXX
     # /bin/sh: line 1: env: command not found
     # Fuk me if I understand, reverting for now
+    # https://github.com/nix-community/home-manager/issues/3095
     # gpg-agent = {
       # enable = true;
       # defaultCacheTtl = 86400;
       # maxCacheTtl = 86400;
+      # pinentryFlavor = null;
       # extraConfig = ''
         # pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
         # auto-expand-secmem
       # '';
-      # verbose = true;
     # };
 
     # XXX: Not yet on 21.05 channel
