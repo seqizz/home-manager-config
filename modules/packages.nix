@@ -34,12 +34,12 @@ in
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2022-04-13";
+          version = "unstable-2022-08-23";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "cd50596f0ed81c0aa28cefed62176bd6f050a1c6";
-            sha256 = "0lh3p3lkafkb2f0vqd5d99xr4wi47sgb57x65wa2cika8pz5sikv";
+            rev = "e0758eb5e572d5d7cf28f28e5e409f20e0bd2ded";
+            sha256 = "1qhpl0z52d71diclamnlv2igy3l361cqxzbkqyfxvhy5lf80airg";
             fetchSubmodules = true;
           };
         });
@@ -94,6 +94,7 @@ in
         pylint
         pynvim
         pysnooper
+        pyupgrade
         pyyaml
         requests
         setuptools
