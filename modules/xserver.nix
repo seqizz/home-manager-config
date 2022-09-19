@@ -19,12 +19,12 @@ in
     rules = [
       {
         name = "inno-dell-dock-tr";
-        outputs_present = [ "eDP-1" "DP-1-2" ];
-        outputs_connected = [ "DP-1-2" ];
-        primary = "DP-1-2";
+        outputs_present = [ "eDP-1" "DP-1" ];
+        outputs_connected = [ "DP-1" ];
+        primary = "DP-1";
         atomic = true;
-        configure_single = "DP-1-2@3840x2160";
-        execute_after = get_dpi_commands { dpi=192; };
+        configure_single = "DP-1@3840x2160";
+        execute_after = get_dpi_commands { dpi=132; };
       }
       {
         name = "inno-dell-dock-office";
