@@ -41,6 +41,11 @@ in
     name = "psitool-script";
     src = ./scripts/psitool-script;
   });
+  git-browse-origin = (writeSubbedBin {
+    name = "git-browse-origin";
+    src = ./scripts/git-browse-origin;
+    inherit bash;
+  });
   git-cleanmerged = (writeSubbedBin {
     name = "git-cleanmerged";
     src = ./scripts/git-cleanmerged;

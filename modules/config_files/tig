@@ -6,3 +6,6 @@ bind generic c !@sh -c "echo -n %(commit) | xclip -selection c"
 
 # export current diff to a file
 bind main x ?git format-patch -1 -N %(commit)
+
+# open commit in web browser
+bind generic O !sh -c "git-browse-origin %(commit)"
