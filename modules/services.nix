@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, lib, pkgs, ...}:
 let
   baseconfig = { allowUnfree = true; };
   # In case I want to use the packages I need on other channels
@@ -47,25 +47,27 @@ in
       # '';
     # };
 
-    # XXX: Not yet on 21.05 channel
-    # xidlehook = {
-      # enable = true;
-      # not-when-fullscreen = true;
-      # timers = [
-        # {
-          # # delay = 250;
+    xidlehook = {
+      enable = true;
+      not-when-fullscreen = true;
+      environment = {
+        "DISPLAY" = ":0";
+      };
+      timers = [
+        {
+          delay = 250;
           # delay = 30;
-          # command = "${lock-helper}/bin/lock-helper start";
-          # canceller = "${lock-helper}/bin/lock-helper cancel";
-        # }
-        # {
-          # # delay = 120;
+          command = "${lock-helper}/bin/lock-helper start";
+          canceller = "${lock-helper}/bin/lock-helper cancel";
+        }
+        {
+          delay = 120;
           # delay = 10;
-          # command = "${lock-helper}/bin/lock-helper lock";
-          # canceller = "${lock-helper}/bin/lock-helper cancel";
-        # }
-      # ];
-    # };
+          command = "${lock-helper}/bin/lock-helper lock";
+          canceller = "${lock-helper}/bin/lock-helper cancel";
+        }
+      ];
+    };
   };
 
   systemd.user = {
@@ -88,29 +90,34 @@ in
         };
       };
 
-      xidlehook = {
-        Unit = {
-          Description = "My screen locker";
-          After = [
-            "graphical-session.target"
-          ];
-        };
-        Install = {
-          WantedBy = [
-            "multi-user.target"
-            "graphical-session.target"
-          ];
-        };
-        Service = {
-          ExecStart = ''
-            ${unstable.xidlehook}/bin/xidlehook --not-when-fullscreen --timer 250 '${lock-helper}/bin/lock-helper start' '${lock-helper}/bin/lock-helper cancel' --timer 120 '${lock-helper}/bin/lock-helper lock' '${lock-helper}/bin/lock-helper cancel'
-          '';
-          RestartSec = 25;
-          Restart = "always";
-          Environment = "DISPLAY=:0";
-          PrivateTmp = "false";
-        };
+      # An addition to make my xidlehook wrapper work
+      xidlehook = lib.mkIf config.services.xidlehook.enable {
+        Service.PrivateTmp = false;
       };
+
+      # xidlehook = {
+        # Unit = {
+          # Description = "My screen locker";
+          # After = [
+            # "graphical-session.target"
+          # ];
+        # };
+        # Install = {
+          # WantedBy = [
+            # "multi-user.target"
+            # "graphical-session.target"
+          # ];
+        # };
+        # Service = {
+          # ExecStart = ''
+            # ${unstable.xidlehook}/bin/xidlehook --not-when-fullscreen --timer 250 '${lock-helper}/bin/lock-helper start' '${lock-helper}/bin/lock-helper cancel' --timer 120 '${lock-helper}/bin/lock-helper lock' '${lock-helper}/bin/lock-helper cancel'
+          # '';
+          # RestartSec = 25;
+          # Restart = "always";
+          # Environment = "DISPLAY=:0";
+          # PrivateTmp = "false";
+        # };
+      # };
 
       auto-rotate = {
         Unit = {
