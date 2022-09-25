@@ -24,7 +24,7 @@ in
         primary = "DP-1";
         atomic = true;
         configure_single = "DP-1@3840x2160";
-        execute_after = get_dpi_commands { dpi=132; };
+        execute_after = get_dpi_commands { dpi=148; };
       }
       {
         name = "inno-dell-dock-office";

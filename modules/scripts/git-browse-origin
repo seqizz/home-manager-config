@@ -11,4 +11,4 @@ if [ -n "$COMMIT" ]; then
   URL="$URL/commit/$COMMIT"
 fi
 
-xdg-open $URL
+firefox $URL
