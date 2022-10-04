@@ -1,7 +1,14 @@
 #!/usr/bin/env @bash@/bin/bash
 # Stolen from: https://github.com/Genki-S/dotfiles
 
-COMMIT=$1
+if [ "$1" = "-s" ]; then
+    # Just show
+    COMMIT=$2
+    TOOL=echo
+else
+    COMMIT=$1
+    TOOL=firefox
+fi
 
 URL_BASE=`git config --get remote.origin.url | sed -e 's|git@|https://|' -e 's|:|/|g' -e 's|///|://|' -e 's|.git$||'`
 
@@ -11,4 +18,4 @@ if [ -n "$COMMIT" ]; then
   URL="$URL/commit/$COMMIT"
 fi
 
-firefox $URL
+$TOOL $URL

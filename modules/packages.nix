@@ -67,7 +67,7 @@ in
   home.packages = with pkgs;
     # Conditionals first
     (if sysconfig.networking.hostName == "innixos" || sysconfig.networking.hostName == "innodellix" then [
-      slack
+      unstable.slack
       unstable.teams
       gnome3.gnome-keyring # needed for teams, thanks MS
       unstable.discord
