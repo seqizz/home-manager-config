@@ -49,16 +49,20 @@
 tab-item.active tab-item-substance {
   height: 45px !important;
 }
+
 /* No favicon also */
 tab-item:not(.faviconized):not(.loading):is(.active) tab-favicon {
   display: none;
 }
+
 /* Hmmh bold text */
 tab-item.active .label-content {
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 110%;
+  color: #d79921 !important;
 }
+
 /* Sprinkle some color */
 tab-item.active tab-item-substance .background {
-  background: #6C71C477 !important;
+  background: #282828 !important;
 }
