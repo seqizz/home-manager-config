@@ -50,6 +50,9 @@ user_pref("accessibility.force_disabled", 1);
 /* Yo fuck off what is 1 second wait***/
 user_pref("security.dialog_enable_delay", 200);
 
+/* Disable ugly footer popping up for completion***/
+user_pref("signon.showAutoCompleteFooter", false);
+
 /* Moronic ad stuff ***/
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.sponsoredTopSites", false);

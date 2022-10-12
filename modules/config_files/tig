@@ -1,5 +1,5 @@
 # Switch to a branch with selected commit
-bind main F !@sh -c "git checkout -b `echo -n %(commit) | head -c 10 | sed 's/^/newbranch_/'` %(commit)"
+bind main F !@sh -c "git checkout -b `echo -n %(commit) | head -c 10 | sed 's/^/g_pick_/'` %(commit)"
 
 # copy commit id to clipboard
 bind generic c !@sh -c "echo -n %(commit) | xclip -selection c"

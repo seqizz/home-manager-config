@@ -20,6 +20,7 @@ in
       {
         name = "inno-dell-dock-tr";
         outputs_present = [ "eDP-1" "DP-1" ];
+        outputs_disconnected = [ "DP-2" "DP-3" ];
         outputs_connected = [ "DP-1" ];
         primary = "DP-1";
         atomic = true;
@@ -28,11 +29,11 @@ in
       }
       {
         name = "inno-dell-dock-office";
-        outputs_present = [ "eDP-1" "DP-3-1" "DP-3-2" ];
-        outputs_connected = [ "DP-3-1" "DP-3-2" ];
-        primary = "DP-3-1";
+        outputs_present = [ "eDP-1" "DP-1" "DP-2" "DP-3" "DP-4" ];
+        outputs_connected = [ "DP-1" "DP-3" ];
+        primary = "DP-3";
         atomic = true;
-        configure_row = [ "DP-3-2" "DP-3-1" ];
+        configure_row = [ "DP-1@1920x1200" "DP-3@1920x1200" ];
         execute_after = get_dpi_commands { dpi=96; };
       }
       {
