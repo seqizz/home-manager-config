@@ -54,6 +54,10 @@ tab-item.active tab-item-substance {
 tab-item:not(.faviconized):not(.loading):is(.active) tab-favicon {
   display: none;
 }
+/* Except for loading ones */
+tab-item:not(.faviconized):is(.loading) tab-favicon {
+  opacity: 1;
+}
 
 /* Hmmh bold text */
 tab-item.active .label-content {
