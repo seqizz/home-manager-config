@@ -1,4 +1,5 @@
 { stdenv
+, lib
 , buildPythonPackage
 , fetchFromGitHub
 , vmprof
@@ -12,14 +13,14 @@ let
   # Therefore we create a separate env for it.
   scons = pkgs.python27.withPackages(ps: [ pkgs.scons ]);
 in buildPythonPackage rec {
-  version = "0.6.9.1";
+  version = "unstable-2022-12-08";
   pname = "Nuitka";
 
   src = fetchFromGitHub {
     owner = "Nuitka";
     repo = "Nuitka";
-    rev = "262d506035b3738f622fa01d9ce8e597deb417cf";
-    sha256 = "0lyybhi8gaaafckjvpfchqqanvjx514p492l50gjdskzwi7mv6r0";
+    rev = "04be4e7dae93566d5cccee17d41e61c774ed67f8";
+    sha256 = "113ls94m8yklbzsmv1li8wshjvh05q4m3fn22nl0yc88fqsqzymw";
   };
 
   checkInputs = [ vmprof pyqt4 ];
@@ -27,7 +28,7 @@ in buildPythonPackage rec {
 
   postPatch = ''
     patchShebangs tests/run-tests
-  '' + stdenv.lib.optionalString stdenv.isLinux ''
+  '' + lib.optionalString stdenv.isLinux ''
     substituteInPlace nuitka/plugins/standard/ImplicitImports.py --replace 'locateDLL("uuid")' '"${pkgs.utillinux.out}/lib/libuuid.so"'
   '';
 
@@ -44,7 +45,7 @@ in buildPythonPackage rec {
   # Requires CPython
   disabled = isPyPy;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Python compiler with full language support and CPython compatibility";
     license = licenses.asl20;
     homepage = https://nuitka.net/;

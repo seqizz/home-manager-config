@@ -34,14 +34,15 @@ in
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2022-10-24";
+          version = "unstable-2022-12-03";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "2dae094981e665df37de523479be062d5e0bda98";
-            sha256 = "0hns99y0dqh83ws9la2im5f4r0q8fx0crnwk8psfk95y8kjbhyjk";
+            rev = "882025092f52585fa5c88fef297a12472ec73314";
+            sha256 = "1a9nxlfs9rz442iml0czdganipdgan2q9hihdm89fqlw22flvjna";
             fetchSubmodules = true;
           };
+          buildInputs = old.buildInputs ++ [ pkgs.pcre2 ];
         });
         # @Reference patching apps
         # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {
@@ -186,3 +187,4 @@ in
     xsel
   ];
 }
+#  vim: set ts=2 sw=2 tw=0 et :
