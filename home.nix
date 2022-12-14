@@ -11,10 +11,10 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     ./modules/includes.nix
   ];
 
-  home.activation.fuckMicrosoft = dagEntryBefore ["checkLinkTargets"] ''
-    echo "Removing the crap some moronic apps are placing.."
-    find ~ -name "*.FUCK" -print -delete
-  '';
+  # home.activation.fuckMicrosoft = dagEntryBefore ["checkLinkTargets"] ''
+    # echo "Removing the crap some moronic apps are placing.."
+    # find ~ -name "*.FUCK" -print -delete
+  # '';
 
   programs.home-manager = {
     enable = true;
