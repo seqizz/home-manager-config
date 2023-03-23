@@ -4,11 +4,11 @@ rustPlatform.buildRustPackage rec {
   name = "autorandr-rs";
   src = fetchFromGitHub {
     owner = "theotherjimmy";
-    repo = name;
-    rev = "c8cd814dcdb25551e9acc7b777979a73b2241612";
-    sha256 = "1gaw2hjyvbrv7wwf1yr218avxdi6yfm4cshqvnf57mq4c024s7i8";
+    repo = "autorandr-rs";
+    rev = "408764f2b42f4fea28e03a04f9826a8fee699086";
+    sha256 = "1fxrkrvrilgjrbxwzk8b1xhhrjksd0lwvijz6gp7q22ny5yk2l5s";
   };
-  cargoSha256 = "14kascz4ifvmixq7w13vvnzq52q1b6ipw2wkdxarv5phmzmsbmi6";
+  cargoSha256 = "sha256-9OPWhbyg/tmc9xg/3dj+OtxVxoQ3tRDuF1yXi1jBAuY";
   nativeBuildInputs = [ scdoc installShellFiles ];
   preFixup = ''
     installManPage $releaseDir/build/${name}-*/out/${name}.1

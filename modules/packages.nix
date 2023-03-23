@@ -34,12 +34,12 @@ in
         paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2022-12-03";
+          version = "unstable-2023-01-29";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "882025092f52585fa5c88fef297a12472ec73314";
-            sha256 = "1a9nxlfs9rz442iml0czdganipdgan2q9hihdm89fqlw22flvjna";
+            rev = "cee12875625465292bc11bf09dc8ab117cae75f4";
+            sha256 = "15znjqcibnmhc869wlh70nxx0nwzdzilc9rjsvl8m7zkxg002p4m";
             fetchSubmodules = true;
           };
           buildInputs = old.buildInputs ++ [ pkgs.pcre2 ];
