@@ -8,6 +8,13 @@ let
   lock-helper = (import ./scripts.nix {pkgs = pkgs;}).lock-helper;
   auto-rotate = (import ./scripts.nix {pkgs = pkgs;}).auto-rotate;
   secrets = import ./secrets.nix {pkgs=pkgs;};
+  pinentryRofi = pkgs.writeShellApplication {
+    name= "pinentry-rofi-with-env";
+    text = ''
+      PATH="$PATH:${pkgs.coreutils}/bin:${pkgs.rofi}/bin"
+      "${pkgs.pinentry-rofi}/bin/pinentry-rofi" "$@"
+    '';
+  };
 in
 {
   services = {
@@ -29,20 +36,17 @@ in
       extraOptions = [ "ignore-scrolling" ];
     };
 
-    # XXX
-    # /bin/sh: line 1: env: command not found
-    # Fuk me if I understand, reverting for now
     # https://github.com/nix-community/home-manager/issues/3095
-    # gpg-agent = {
-      # enable = true;
-      # defaultCacheTtl = 86400;
-      # maxCacheTtl = 86400;
-      # pinentryFlavor = null;
-      # extraConfig = ''
-        # pinentry-program ${pkgs.pinentry-rofi}/bin/pinentry-rofi
-        # auto-expand-secmem
-      # '';
-    # };
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 86400;
+      maxCacheTtl = 86400;
+      pinentryFlavor = null;
+      extraConfig = ''
+        pinentry-program ${pinentryRofi}/bin/pinentry-rofi-with-env
+        auto-expand-secmem
+      '';
+    };
 
     xidlehook = {
       enable = true;
