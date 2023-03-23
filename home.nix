@@ -11,6 +11,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     ./modules/includes.nix
   ];
 
+  # @Reference doesn't work with new versions
   # home.activation.fuckMicrosoft = dagEntryBefore ["checkLinkTargets"] ''
     # echo "Removing the crap some moronic apps are placing.."
     # find ~ -name "*.FUCK" -print -delete

@@ -69,8 +69,6 @@ in
           USERNAME_field='login'
         '';
         };
-      # width = 40;
-      # lines = 20;
       font = "FiraCode Nerd Font 14";
       theme = "glue_pro_blue";
       extraConfig = {

@@ -27,7 +27,7 @@ bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//
 colourscheme mytheme
 
 " Use vim in tmux for editor.
-set editorcmd wezterm start vim
+set editorcmd wezterm start --class triedit nvim
 
 " Ctrl-F should use the browser's native 'find' functionality.
 unbind <C-f>

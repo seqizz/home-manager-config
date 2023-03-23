@@ -10,9 +10,6 @@ let
   secrets = import ./secrets.nix {pkgs=pkgs;};
 in
 {
-  # TODO: check later, https://rycee.gitlab.io/home-manager/options.html#opt-systemd.user.startServices
-  # systemd.user.startServices = "sd-switch";
-
   services = {
     kdeconnect.enable = true;
     playerctld.enable = true;
@@ -56,13 +53,11 @@ in
       timers = [
         {
           delay = 250;
-          # delay = 30;
           command = "${lock-helper}/bin/lock-helper start";
           canceller = "${lock-helper}/bin/lock-helper cancel";
         }
         {
           delay = 120;
-          # delay = 10;
           command = "${lock-helper}/bin/lock-helper lock";
           canceller = "${lock-helper}/bin/lock-helper cancel";
         }
@@ -72,6 +67,9 @@ in
 
   systemd.user = {
     startServices = true;
+    # TODO: check later, failing now
+    # https://rycee.gitlab.io/home-manager/options.html#opt-systemd.user.startServices
+    # startServices = "sd-switch";
     services = {
       baglan = {
         Unit = {
@@ -94,30 +92,6 @@ in
       xidlehook = lib.mkIf config.services.xidlehook.enable {
         Service.PrivateTmp = false;
       };
-
-      # xidlehook = {
-        # Unit = {
-          # Description = "My screen locker";
-          # After = [
-            # "graphical-session.target"
-          # ];
-        # };
-        # Install = {
-          # WantedBy = [
-            # "multi-user.target"
-            # "graphical-session.target"
-          # ];
-        # };
-        # Service = {
-          # ExecStart = ''
-            # ${unstable.xidlehook}/bin/xidlehook --not-when-fullscreen --timer 250 '${lock-helper}/bin/lock-helper start' '${lock-helper}/bin/lock-helper cancel' --timer 120 '${lock-helper}/bin/lock-helper lock' '${lock-helper}/bin/lock-helper cancel'
-          # '';
-          # RestartSec = 25;
-          # Restart = "always";
-          # Environment = "DISPLAY=:0";
-          # PrivateTmp = "false";
-        # };
-      # };
 
       auto-rotate = {
         Unit = {
