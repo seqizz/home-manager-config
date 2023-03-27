@@ -6,6 +6,7 @@ let
     # fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   # ) { config = baseconfig; };
   secrets = import ./secrets.nix {pkgs=pkgs;};
+  gitConfigInnoPath = (pkgs.writeText "git-config-inno" secrets.gitConfigInno).outPath;
 in
 {
   programs = {
@@ -49,6 +50,16 @@ in
           ff = "only";
         };
       };
+      includes = [
+        {
+          condition = "gitdir:devel/ig/**";
+          path = gitConfigInnoPath;
+        }
+        {
+          condition = "gitdir:devel/puppet/**";
+          path = gitConfigInnoPath;
+        }
+      ];
     };
 
     browserpass = {
