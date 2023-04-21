@@ -30,6 +30,11 @@ in
 
       "geany/filedefs/filetypes.common".source = ./config_files/geany_styling;
     };
+
+    # Placeholder for vim's undodir
+    dataFile = {
+      "vim-undo/.keep".text = "";
+    };
   };
 
   home.file = {
