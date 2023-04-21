@@ -78,6 +78,7 @@ in
         enable = true;
         extraConfig = ''
           USERNAME_field='login'
+          help_color='#4872FF'
         '';
         };
       font = "FiraCode Nerd Font 14";
