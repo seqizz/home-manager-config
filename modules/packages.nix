@@ -12,6 +12,9 @@ let
   bleeding = import (
     fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz
   ) { config = baseconfig; };
+  oldversion = import (
+    fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-22.11.tar.gz
+  ) { config = baseconfig; };
   # For overrides
   nixpkgs = import <nixpkgs> {};
   sysconfig = (import <nixpkgs/nixos> {}).config;
@@ -29,17 +32,19 @@ in
           inherit pkgs;
         };
         adminapi = unstable.python3Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
-        tapop100 = unstable.python3Packages.callPackage ~/.config/nixpkgs/modules/packages/tapop100.nix {};
-        wezterm = pkgs.callPackage ~/.config/nixpkgs/modules/packages/wezterm.nix {};
-        paoutput = pkgs.callPackage ~/.config/nixpkgs/modules/packages/paoutput.nix {};
+        tapop100 = unstable.python3Packages.callPackage ~/.config/home-manager/modules/packages/tapop100.nix {};
+        # TODO: Switch to unstable/wezterm package, build time is too long
+        wezterm = pkgs.callPackage ~/.config/home-manager/modules/packages/wezterm.nix {};
+        paoutput = pkgs.callPackage ~/.config/home-manager/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
+        browserpass = oldversion.browserpass;  # https://github.com/NixOS/nixpkgs/issues/236074
         picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2023-04-01";
+          version = "unstable-2023-05-08";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "05ef18d78f96a0a970742f1dff40fcf505a0daa6";
-            sha256 = "14wj2khs84q7p61j206q4r7cj68krzyf44b5gwd2pk1xl7alvyq2";
+            rev = "3aed5599c3f73cbfa53b0249795e76ab07cf9ecd";
+            sha256 = "138sn4rjmpckdbklaapkavvq7f5hjp2y428w6n9kxxvylhwk7r2y";
             fetchSubmodules = true;
           };
           buildInputs = old.buildInputs ++ [ pkgs.pcre2 ];

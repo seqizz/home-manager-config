@@ -55,13 +55,18 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "wez";
     repo = "wezterm";
-    rev = "3f820b93d9cb0e9b915a868a05fd73f0381551ae";
+    rev = "95e44f2199d9779e353bccf387a1eb2dbaf41f44";
     fetchSubmodules = true;
-    sha256 = "19qnpyqc3r064lz65fnqj31z04s3dxdvq2gzlgsrx6ac316kjhr5";
+    sha256 = "13x4xkkix1qxh5l95hz38r9l5i5bm7lx483hz327mvp0d6hr1y63";
   };
 
-  # cargoSha256 = "0000000000000000000000000000000000000000000000000000";
-  cargoSha256 = "sha256-R7vY3wv+vKTjVdpIqup8/WYCrdOsrwvlybeTJAcZs34=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "image-0.24.5" = "sha256-fTajVwm88OInqCPZerWcSAm1ga46ansQ3EzAmbT58Js=";
+      "xcb-imdkit-0.2.0" = "sha256-QOT9HLlA26DVPUF4ViKH2ckexUsu45KZMdJwoUhW+hA=";
+    };
+  };
 
   nativeBuildInputs = [
     pkgconfig
