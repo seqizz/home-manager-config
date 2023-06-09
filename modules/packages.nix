@@ -3,15 +3,12 @@
 let
   baseconfig = { allowUnfree = true; };
 # In case I want to use the packages I need on other channels
-  unstable_small = import (
-    fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable-small.tar.gz
-  ) { config = baseconfig; };
   unstable = import (
     fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
   ) { config = baseconfig; };
-  bleeding = import (
-    fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz
-  ) { config = baseconfig; };
+  # bleeding = import (
+  #   fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz
+  # ) { config = baseconfig; };
   oldversion = import (
     fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-22.11.tar.gz
   ) { config = baseconfig; };
@@ -31,13 +28,13 @@ in
         nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
           inherit pkgs;
         };
-        adminapi = unstable.python3Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
-        tapop100 = unstable.python3Packages.callPackage ~/.config/home-manager/modules/packages/tapop100.nix {};
+        adminapi = pkgs.python3Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
+        tapop100 = pkgs.python3Packages.callPackage ~/.config/home-manager/modules/packages/tapop100.nix {};
         # TODO: Switch to unstable/wezterm package, build time is too long
         wezterm = pkgs.callPackage ~/.config/home-manager/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/home-manager/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
-        browserpass = oldversion.browserpass;  # https://github.com/NixOS/nixpkgs/issues/236074
+        browserpass = oldversion.browserpass;  # Reference override: https://github.com/NixOS/nixpkgs/issues/236074
         picom = pkgs.picom.overrideAttrs (old: {
           version = "unstable-2023-05-08";
           src = pkgs.fetchFromGitHub {
@@ -86,7 +83,7 @@ in
 
     ( gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     ( pass.withExtensions ( ps: with ps; [ pass-genphrase ]))
-    ( unstable.python3.withPackages ( ps: with ps; [
+    ( python3.withPackages ( ps: with ps; [
         adminapi
         black
         coverage
