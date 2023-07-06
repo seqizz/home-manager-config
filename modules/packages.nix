@@ -35,16 +35,24 @@ in
         paoutput = pkgs.callPackage ~/.config/home-manager/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         browserpass = oldversion.browserpass;  # Reference override: https://github.com/NixOS/nixpkgs/issues/236074
-        picom = pkgs.picom.overrideAttrs (old: {
-          version = "unstable-2023-05-08";
+        mpv = pkgs.mpv-unwrapped.override {
+          ffmpeg_5 = pkgs.ffmpeg_5-full;
+        };
+        picom = unstable.picom.overrideAttrs (old: {
+          version = "unstable-2023-07-04";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "3aed5599c3f73cbfa53b0249795e76ab07cf9ecd";
-            sha256 = "138sn4rjmpckdbklaapkavvq7f5hjp2y428w6n9kxxvylhwk7r2y";
+            rev = "4a39423edb15ebc6e3d0cb7eb16dc11a761dbded";
+            sha256 = "05yy3lvanf41hmz7bg4917pm7fb7b99sklspknxf6k4d4v3vz8s6";
             fetchSubmodules = true;
           };
-          buildInputs = old.buildInputs ++ [ pkgs.pcre2 ];
+          buildInputs = old.buildInputs ++ [
+            unstable.cmake
+            unstable.libev
+            unstable.xorg.xcbutil
+            unstable.pcre2
+          ];
         });
         # @Reference patching apps
         # krunner-pass = pkgs.krunner-pass.overrideAttrs (attrs: {

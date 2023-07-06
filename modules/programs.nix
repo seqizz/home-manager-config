@@ -43,6 +43,7 @@ in
         enable = true;
         options = {
           dark = "true";
+          true-color = "always";
         };
       };
       extraConfig = {
@@ -98,3 +99,4 @@ in
     };
   };
 }
+#  vim: set ts=2 sw=2 tw=0 et :
