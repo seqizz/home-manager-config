@@ -119,6 +119,7 @@ in
     steam
     nur.repos.mic92.reveal-md
     unstable.tdesktop # telegram
+    unstable.firefox # fucker crashing on me with 114.0.2
 
     # Rest is sorted
     adbfs-rootless
@@ -135,7 +136,6 @@ in
     dconf # some gnome apps keep its config in this shit e.g. shotwell
     ffmpeg
     ffmpegthumbs
-    firefox
     flameshot
     geany
     gitstatus
