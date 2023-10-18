@@ -32,6 +32,13 @@ user_pref("browser.urlbar.doubleClickSelectsAll", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.partition.serviceWorkers", true);
+user_pref("browser.download.start_downloads_in_tmp_dir", true);
+user_pref("browser.shopping.experience2023.enabled", false);
+user_pref("browser.urlbar.addons.featureGate", false);
+user_pref("browser.urlbar.mdn.featureGate", false);
+user_pref("browser.urlbar.pocket.featureGate", false);
+user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.urlbar.weather.featureGate", false);
 
 /* I am not in content with this, but can't find a better way ***/
 user_pref("browser.download.useDownloadDir", true);
