@@ -30,8 +30,6 @@ in
         };
         adminapi = pkgs.python3Packages.callPackage /devel/ig/nix-definitions/packages/adminapi.nix {};
         tapop100 = pkgs.python3Packages.callPackage ~/.config/home-manager/modules/packages/tapop100.nix {};
-        # TODO: Switch to unstable/wezterm package, build time is too long
-        wezterm = pkgs.callPackage ~/.config/home-manager/modules/packages/wezterm.nix {};
         paoutput = pkgs.callPackage ~/.config/home-manager/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         browserpass = oldversion.browserpass;  # Reference override: https://github.com/NixOS/nixpkgs/issues/236074
@@ -39,12 +37,12 @@ in
           ffmpeg_5 = pkgs.ffmpeg_5-full;
         };
         picom = unstable.picom.overrideAttrs (old: {
-          version = "unstable-2023-07-04";
+          version = "unstable-2023-09-10";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "4a39423edb15ebc6e3d0cb7eb16dc11a761dbded";
-            sha256 = "05yy3lvanf41hmz7bg4917pm7fb7b99sklspknxf6k4d4v3vz8s6";
+            rev = "d9e5795818bcc6afa93c1fd872ae5d2deecc6241";
+            sha256 = "08q7i49phfjdldkpx2xlhsw97b2w11jprb695d6mbsnsjka6vm3m";
             fetchSubmodules = true;
           };
           buildInputs = old.buildInputs ++ [
@@ -79,12 +77,12 @@ in
     # Conditionals first
     (if sysconfig.networking.hostName == "innixos" || sysconfig.networking.hostName == "innodellix" then [
       unstable.slack
-      unstable.teams
-      gnome3.gnome-keyring # needed for teams, thanks MS
+      # gnome3.gnome-keyring # needed for teams, thanks MS
       unstable.discord
       unstable.zoom-us
       my_scripts.innovpn-toggle
       thunderbird
+      betterbird
     ] else [] ) ++ [
 
     # Now overrides
@@ -120,6 +118,10 @@ in
     nur.repos.mic92.reveal-md
     unstable.tdesktop # telegram
     unstable.firefox # fucker crashing on me with 114.0.2
+    unstable.wezterm
+
+    # NUR packages
+    nur.repos.wolfangaukang.vdhcoapp
 
     # Rest is sorted
     adbfs-rootless
@@ -161,6 +163,7 @@ in
     my_scripts.xinput-toggle
     nfpm
     onboard # on-screen keyboard
+    opera # Good to have as alternative
     pamixer # pulseaudio mixer
     papirus-icon-theme
     paoutput
@@ -184,7 +187,6 @@ in
     taskwarrior
     update-nix-fetchgit
     wally-cli
-    wezterm
     xautomation
     xclip
     xdotool
