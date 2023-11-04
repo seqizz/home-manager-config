@@ -4,16 +4,15 @@
 }:
 python3.pkgs.buildPythonPackage {
   pname = "TapoP100";
-  version = "unstable-2022-04-04";
+  version = "unstable-2022-11-03";
 
   src = fetchFromGitHub {
     owner = "fishbigger";
     repo = "TapoP100";
-    rev = "4e0458ff300102f630d953ebb463bfd7dff05f7a";
-    sha256 = "0lnlkza5v5d1xdc1irvj5zln3yc7aqy7cr9d0qxd3w7wd5ryiaip";
+    rev = "43f51a03ab7a647f81682f7b39ceb2afdd04d3a1";
+    sha256 = "1fz0394djknzf0nalrn5gnrziv35ns2hbz0lsqp8ir973sif7jk8";
   };
 
-  # Pinning without a real need
   patchPhase = ''
     substituteInPlace setup.py \
       --replace 'requests==2.24.0' 'requests' \
@@ -27,7 +26,7 @@ python3.pkgs.buildPythonPackage {
   ];
 
   meta = with lib; {
-    description = "Controller for Tp-link Tapo P100 plugs, P105 plugs and L510E bulbs";
+    description = "Controller for TP-Link Tapo devices including the P100, P105, P110 plugs and the L530 and L510E bulbs";
     homepage    = "https://github.com/fishbigger/TapoP100";
     license     = licenses.mit;
     maintainers =  with maintainers; [ seqizz ];
