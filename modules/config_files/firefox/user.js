@@ -57,6 +57,9 @@ user_pref("accessibility.force_disabled", 1);
 /* Yo fuck off what is 1 second wait***/
 user_pref("security.dialog_enable_delay", 200);
 
+/* I am doing my own relay thanks***/
+user_pref("signon.firefoxRelay.feature", "disabled");
+
 /* Disable ugly footer popping up for completion***/
 user_pref("signon.showAutoCompleteFooter", false);
 
