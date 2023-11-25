@@ -140,6 +140,10 @@ in
     windowManager.command = ''
     ${pkgs.dbus}/bin/dbus-run-session ${pkgs.myAwesome}/bin/awesome
     '';
+    initExtra = ''
+      # Starting autorandr to adapt to whatever is connected
+      autorandr --change
+    '';
   };
 
   home.pointerCursor = {
