@@ -110,6 +110,7 @@ in
         tapop100
         vimwiki-markdown
         virtualenv
+        vulture # find unused code
         xlib
     ]))
 
@@ -141,6 +142,7 @@ in
     flameshot
     geany
     gitstatus
+    git-filter-repo # Amazing tool to rewrite history 😈
     glxinfo
     graphviz # some rarely-needed weird tools
     grobi # no more autorandr 🎉
@@ -174,6 +176,7 @@ in
     picom # X compositor which sucks, also do not use services.picom
     pinentry-rofi
     playerctl
+    poetry
     # poppler_utils # for pdfunite
     proxychains
     puppet-lint
