@@ -192,6 +192,7 @@ in
     wally-cli
     xautomation
     xclip
+    xcolor # color picker
     xdotool
     xorg.xmodmap
     xorg.xdpyinfo
