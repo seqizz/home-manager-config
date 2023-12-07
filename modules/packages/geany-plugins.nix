@@ -2,7 +2,7 @@
 , lib
 , fetchurl
 , intltool
-, pkgconfig
+, pkg-config
 , file
 , geany
 , gtk3
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     intltool
-    pkgconfig
+    pkg-config
     file
     geany
     vte

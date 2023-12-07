@@ -34,7 +34,7 @@ in
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
         browserpass = oldversion.browserpass;  # Reference override: https://github.com/NixOS/nixpkgs/issues/236074
         mpv = pkgs.mpv-unwrapped.override {
-          ffmpeg_5 = pkgs.ffmpeg_5-full;
+          ffmpeg = pkgs.ffmpeg_5-full;
         };
         picom = unstable.picom.overrideAttrs (old: {
           version = "unstable-2023-10-17";

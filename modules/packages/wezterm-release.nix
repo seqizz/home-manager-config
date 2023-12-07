@@ -3,7 +3,7 @@
 , makeRustPlatform
 , lib
 , fetchFromGitHub
-, pkgconfig
+, pkg-config
 , fontconfig
 , python3
 , openssl
@@ -63,7 +63,7 @@ rustPlatform.buildRustPackage {
   cargoSha256 = "1gp486979dkp1mq6i8ml0xds4mnsicgmhslxbmxlfk9zjq5bidjn";
 
   nativeBuildInputs = [
-    pkgconfig
+    pkg-config
     python3
     perl
     ncurses

@@ -71,9 +71,6 @@ in
 
   systemd.user = {
     startServices = true;
-    # TODO: check later, failing now
-    # https://rycee.gitlab.io/home-manager/options.html#opt-systemd.user.startServices
-    # startServices = "sd-switch";
     services = {
       baglan = {
         Unit = {
