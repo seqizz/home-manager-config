@@ -17,6 +17,7 @@ let
   slock = pkgs.slock;
   xinput = pkgs.xorg.xinput;
   xrandr = pkgs.xorg.xrandr;
+  xclip = pkgs.xclip;
 in
 {
   auto-rotate = (writeSubbedBin {
@@ -63,5 +64,10 @@ in
     name = "lock-helper";
     src = ./scripts/lock-helper;
     inherit bash brightnessctl slock coreutils procps libnotify;
+  });
+  rofi-subsuper = (writeSubbedBin {
+    name = "rofi-subsuper";
+    src = ./scripts/rofi-subsuper;
+    inherit bash sed xclip;
   });
 }
