@@ -68,6 +68,23 @@ in
       browsers = [ "firefox" ];
     };
 
+    # Bug: https://github.com/nix-community/home-manager/issues/1586
+    # firefox = {
+    #   enable = true;
+    #   package = pkgs.wrapFirefox pkgs.firefox-unwrapped.override {
+    #     nativeMessagingHosts = with pkgs; [
+    #       browserpass
+    #       nur.repos.wolfangaukang.vdhcoapp
+    #       tridactyl-native
+    #     ];
+    #   };
+    #   profiles.declaredProfile = {
+    #     name = "gurkan-home-manager";
+    #     extraConfig = builtins.readFile ./config_files/firefox/user.js;
+    #     userChrome = builtins.readFile ./config_files/firefox/userChrome.css;
+    #   };
+    # };
+
     rofi = {
       enable = true;
       package = pkgs.rofi.override {

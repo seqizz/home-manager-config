@@ -32,6 +32,7 @@ in
         tapop100 = pkgs.python3Packages.callPackage ~/.config/home-manager/modules/packages/tapop100.nix {};
         paoutput = pkgs.callPackage ~/.config/home-manager/modules/packages/paoutput.nix {};
         pinentry-rofi = pkgs.callPackage ../../../../../etc/nixos/modules/packages/pinentry-rofi.nix {};
+        loose = pkgs.python3Packages.callPackage ../../../../../etc/nixos/modules/packages/loose.nix {};
         browserpass = oldversion.browserpass;  # Reference override: https://github.com/NixOS/nixpkgs/issues/236074
         mpv = pkgs.mpv-unwrapped.override {
           ffmpeg = pkgs.ffmpeg_5-full;
@@ -145,7 +146,6 @@ in
     git-filter-repo # Amazing tool to rewrite history 😈
     glxinfo
     graphviz # some rarely-needed weird tools
-    grobi # no more autorandr 🎉
     imagemagick
     inotify-tools
     jmtpfs # mount MTP devices easily
@@ -153,6 +153,7 @@ in
     # kde-gtk-config # best GTK theme selector
     libnotify
     libreoffice
+    loose # Fuck yeah
     lxqt.lximage-qt
     meld # GUI diff tool
     mpv
