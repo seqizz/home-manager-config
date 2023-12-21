@@ -38,12 +38,12 @@ in
           ffmpeg = pkgs.ffmpeg_5-full;
         };
         picom = unstable.picom.overrideAttrs (old: {
-          version = "unstable-2023-10-17";
+          version = "unstable-2023-12-20";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "a6b4e285f833c13b217c0e30ca71a903ec2464b5";
-            sha256 = "13ibsgsssij718nxhmfx89nahb833lw5nibd3i47i3413g5r7glp";
+            rev = "b368072e12acdb069bd5075886d555fccf66fe2b";
+            sha256 = "16qxnn8wqncvf3kggbamspyv9xr0ix541nj10wzk8srdwcanid7a";
             fetchSubmodules = true;
           };
           buildInputs = old.buildInputs ++ [
