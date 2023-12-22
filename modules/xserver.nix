@@ -29,6 +29,8 @@ in
       ExecStart = "${pkgs.loose}/bin/loose rotate -e";
       Type = "oneshot";
       RemainAfterExit = true;
+      # We'd like to be able to run anything available on system via hooks
+      Environment = "PATH=$PATH:/run/current-system/sw/bin";
     };
   };
 
