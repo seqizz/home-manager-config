@@ -29,6 +29,8 @@ in
       "extrakto/extrakto.conf".source = ./config_files/extrakto.conf;
 
       "geany/filedefs/filetypes.common".source = ./config_files/geany_styling;
+
+      "delta-theme.gitconfig".source = ./config_files/delta-theme;
     };
 
     # Placeholder for vim's undodir

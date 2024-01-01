@@ -44,11 +44,16 @@ in
         options = {
           dark = "true";
           true-color = "always";
+          features = "mytheme";
         };
       };
       extraConfig = {
         pull = {
           ff = "only";
+        };
+        diff = {
+          colormoved = "default";
+          colormovedws = "allow-indentation-change";
         };
       };
       includes = [
@@ -59,6 +64,9 @@ in
         {
           condition = "gitdir:devel/puppet/**";
           path = gitConfigInnoPath;
+        }
+        {
+          path = "/home/gurkan/.config/delta-theme.gitconfig";
         }
       ];
     };
