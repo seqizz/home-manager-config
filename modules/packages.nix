@@ -38,12 +38,12 @@ in
           ffmpeg = pkgs.ffmpeg_5-full;
         };
         picom = unstable.picom.overrideAttrs (old: {
-          version = "unstable-2023-12-20";
+          version = "unstable-2023-12-22";
           src = pkgs.fetchFromGitHub {
             owner = "yshui";
             repo = "picom";
-            rev = "b368072e12acdb069bd5075886d555fccf66fe2b";
-            sha256 = "16qxnn8wqncvf3kggbamspyv9xr0ix541nj10wzk8srdwcanid7a";
+            rev = "496452cfce5e002e3795f7b36590af4f10b58798";
+            sha256 = "0p8m39i0znfx5pfljzr8y179imysspnnhxan4cnvxz6k0hm6gdkc";
             fetchSubmodules = true;
           };
           buildInputs = old.buildInputs ++ [
@@ -192,6 +192,7 @@ in
     taskwarrior
     update-nix-fetchgit
     wally-cli
+    vial # QMK keyboard configurator
     xautomation
     xclip
     xcolor # color picker
