@@ -188,6 +188,7 @@ in
     slock
     spotify
     steam-run # helper tool for running shitty binaries
+    stylua # Lua code formatter
     tarsnap
     taskwarrior
     update-nix-fetchgit
