@@ -128,6 +128,7 @@ in
     # Rest is sorted
     adbfs-rootless
     alacritty
+    alejandra # Nix formatter
     alttab
     arandr # I might need manual xrandr one day
     arc-kde-theme # for theming kde apps
@@ -166,6 +167,7 @@ in
     my_scripts.workman-toggle
     my_scripts.xinput-toggle
     nfpm
+    nodePackages.fixjson # JSON formatter
     onboard # on-screen keyboard
     opera # Good to have as alternative
     pamixer # pulseaudio mixer
