@@ -1,22 +1,25 @@
-{config, lib, pkgs, ...}:
-let
-  baseconfig = { allowUnfree = true; };
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  baseconfig = {allowUnfree = true;};
   # In case I want to use the packages I need on other channels
   unstable = import (
     fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz
-  ) { config = baseconfig; };
+  ) {config = baseconfig;};
   lock-helper = (import ./scripts.nix {pkgs = pkgs;}).lock-helper;
   auto-rotate = (import ./scripts.nix {pkgs = pkgs;}).auto-rotate;
-  secrets = import ./secrets.nix {pkgs=pkgs;};
+  secrets = import ./secrets.nix {pkgs = pkgs;};
   pinentryRofi = pkgs.writeShellApplication {
-    name= "pinentry-rofi-with-env";
+    name = "pinentry-rofi-with-env";
     text = ''
       PATH="$PATH:${pkgs.coreutils}/bin:${pkgs.rofi}/bin"
       "${pkgs.pinentry-rofi}/bin/pinentry-rofi" "$@"
     '';
   };
-in
-{
+in {
   services = {
     kdeconnect.enable = true;
     playerctld.enable = true;
@@ -33,7 +36,7 @@ in
       enable = true;
       threshold = 15;
       timeout = 2;
-      extraOptions = [ "ignore-scrolling" ];
+      extraOptions = ["ignore-scrolling"];
     };
 
     # https://github.com/nix-community/home-manager/issues/3095
@@ -50,6 +53,21 @@ in
 
     xidlehook = {
       enable = true;
+      # @Reference: Overriding rust stuff via cargoDeps
+      # Seems like original author has passed away, RIP @jD91mZM2
+      package = pkgs.xidlehook.overrideAttrs (out: rec {
+        version = "unstable-2022-05-18";
+        src = pkgs.fetchFromGitHub {
+          owner = "realSaltyFish";
+          repo = "xidlehook";
+          rev = "12ea7a8d074fa5907f757e9df85f35c44252e13d";
+          sha256 = "12f7yfwjijcy5cwj60ba7h8lpgxq25kgf0infyzkrivyzsyk6nrz";
+        };
+        cargoDeps = out.cargoDeps.overrideAttrs (_: {
+          inherit src; # You need to pass "src" here again
+          outputHash = "sha256-Iuri3dOLzrfTzHvwOKcZrVJFotqrGlM6EeuV29yqz+U=";
+        });
+      });
       not-when-fullscreen = true;
       environment = {
         "DISPLAY" = ":0";
