@@ -194,19 +194,20 @@ in
     tarsnap
     taskwarrior
     update-nix-fetchgit
-    wally-cli
     vial # QMK keyboard configurator
+    wally-cli
     xautomation
     xclip
     xcolor # color picker
     xdotool
-    xorg.xmodmap
     xorg.xdpyinfo
     xorg.xev
     xorg.xkill
+    xorg.xmodmap
     xorg.xwininfo
     xournal # annotate pdfs
     xsel
+    yamlfix
   ];
 }
 #  vim: set ts=2 sw=2 tw=0 et :

@@ -31,6 +31,8 @@ in
       "geany/filedefs/filetypes.common".source = ./config_files/geany_styling;
 
       "delta-theme.gitconfig".source = ./config_files/delta-theme;
+
+      "yamlfix_config.toml".source = ./config_files/yamlfix_config.toml;
     };
 
     # Placeholder for vim's undodir
