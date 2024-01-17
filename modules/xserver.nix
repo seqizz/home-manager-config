@@ -69,8 +69,8 @@ in
     ${pkgs.dbus}/bin/dbus-run-session ${pkgs.myAwesome}/bin/awesome
     '';
     initExtra = ''
-      # Starting autorandr to adapt to whatever is connected
-      autorandr --change
+      # Trigger loose with reset switch
+      ${pkgs.loose}/bin/loose rotate -r
     '';
   };
 
