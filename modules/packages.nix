@@ -92,7 +92,6 @@ in
     ( pass.withExtensions ( ps: with ps; [ pass-genphrase ]))
     ( python3.withPackages ( ps: with ps; [
         adminapi
-        black
         coverage
         flake8
         ipython
@@ -128,7 +127,6 @@ in
     # Rest is sorted
     adbfs-rootless
     alacritty
-    alejandra # Nix formatter
     alttab
     arandr # I might need manual xrandr one day
     arc-kde-theme # for theming kde apps
@@ -167,7 +165,6 @@ in
     my_scripts.workman-toggle
     my_scripts.xinput-toggle
     nfpm
-    nodePackages.fixjson # JSON formatter
     onboard # on-screen keyboard
     opera # Good to have as alternative
     pamixer # pulseaudio mixer
@@ -183,14 +180,13 @@ in
     poetry
     # poppler_utils # for pdfunite
     proxychains
-    puppet-lint
+    rofi-pulse-select
     qpdfview
     # qt5ct # QT5 theme selector
     simplescreenrecorder
     slock
     spotify
     steam-run # helper tool for running shitty binaries
-    stylua # Lua code formatter
     tarsnap
     taskwarrior
     update-nix-fetchgit
